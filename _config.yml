@@ -8,6 +8,21 @@ theme: jekyll-theme-minimal
 include:
   - _includes/head-custom.html
 
+markdown: kramdown
+
+
+# Adiciona seu CSS customizado
+sass:
+  style: compressed
+
+# Inclui o CSS no site
+defaults:
+  - scope:
+      path: ""
+    values:
+      css: "/assets/css/custom.css"
+
+
 # Informações de contato e autor
 linkedin: https://www.linkedin.com/in/syafonseca/
 github: https://github.com/fonsecadados
@@ -21,13 +36,3 @@ baseurl: ""  # Se for publicado direto no GitHub Pages principal. Mude para "/no
 
 # Melhora as URLs (sem .html no final)
 permalink: pretty
-
-sass:
-  style: compressed
-
-defaults:
-  - scope:
-      path: ""
-    values:
-      layout: default
-
