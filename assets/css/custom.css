@@ -3,3 +3,6 @@ header p,
 header img {
     display: none;
 }
+header {
+  display: none;
+}
