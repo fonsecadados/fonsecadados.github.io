@@ -12,3 +12,6 @@ lang: pt-BR
 url: "https://fonsecadados.github.io"
 baseurl: ""  # Substitua se estiver em um subdiretório (ex: "/portfolio")
 permalink: pretty
+
+include:
+  - _includes/head-custom.html
