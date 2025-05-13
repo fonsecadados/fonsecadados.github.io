@@ -1,8 +1,6 @@
-#logo: /assets/img/foto_perfil_3.png
-#title: Syã Fonseca
-#description: Data insights drive better decisions.
-#show_downloads: false  # precisa ser tudo minúsculo: "false"
-#google_analytics:      # se não for usar, pode remover ou deixar em branco
+title: "SYÃ FONSECA"
+logo: /assets/img/foto_perfil_3.png
+description: "Data insights drive better decisions"
 
 theme: jekyll-theme-minimal
 
@@ -23,3 +21,13 @@ baseurl: ""  # Se for publicado direto no GitHub Pages principal. Mude para "/no
 
 # Melhora as URLs (sem .html no final)
 permalink: pretty
+
+sass:
+  style: compressed
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+

@@ -2,3 +2,8 @@
 ---
 
 @import "jekyll-theme-minimal";
+
+img[alt="logo"] {
+  border-radius: 50%;
+  width: 120px;
+}
