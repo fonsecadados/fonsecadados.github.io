@@ -20,7 +20,8 @@ defaults:
   - scope:
       path: ""
     values:
-      css: "/assets/css/custom.css"
+      # css: "/assets/css/custom.css"
+      layout: default
 
 
 # Informações de contato e autor
