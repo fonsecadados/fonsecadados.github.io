@@ -1,43 +1,52 @@
-<img src="/assets/img/foto_perfil_3.png" alt="Foto de perfil" width="140" style="border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.2); margin-bottom: 10px; float: left; margin-right: 20px;">
+# 👋 Olá! Eu sou **Syã Fonseca**
 
-# SYÃ FONSECA
+Sou um profissional em transição de carreira com 15 anos de experiência no setor audiovisual, atualmente me dedicando à área de **Ciência de Dados**.  
+Estudante do 3º período de Ciência de Dados na Universidade Anhanguera, estou em busca de oportunidades de estágio para aplicar meus conhecimentos e crescer profissionalmente no setor de tecnologia.
 
-**Data insights drive better decisions**
-
-<br clear="all">
-
-[![GitHub](https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/fonsecadados)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/syafonseca/)
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:syafonseca@gmail.com)
+Tenho especial interesse em análise exploratória de dados, modelagem preditiva e uso de dados públicos para gerar impacto social.
 
 ---
 
-## 👋 Olá! Eu sou Syã Fonseca
+## 📂 Portfólio de Projetos
 
-Sou um profissional em transição de carreira com 15 anos de experiência no mercado audiovisual, atuando como Diretor de Arte em campanhas publicitárias. Atualmente, estou cursando **Ciência de Dados** na Universidade Anhanguera e tenho me dedicado intensamente ao aprendizado de programação, análise de dados e visualização de informações.
+### 🚧 **Análise de Acidentes Rodoviários - PRF 2024**
+Exploração e segmentação de dados da Polícia Rodoviária Federal sobre acidentes em rodovias federais:
+- Cálculo de coeficiente de gravidade
+- Classificação por tipos de acidentes e condições climáticas
+- Visualizações com Seaborn e Matplotlib
+- Agrupamento semântico de causas com NLP
 
-Meus principais interesses incluem:
-
-- Análise exploratória de dados com **Python**, **Pandas**, **Matplotlib** e **Seaborn**
-- Projetos com dados públicos, como **acidentes de trânsito** e **segurança pública**
-- Desenvolvimento de soluções computacionais para comunidades costeiras em projetos de extensão
+🔗 [Ver projeto no GitHub](https://github.com/fonsecadados/projeto-acidentes)
 
 ---
 
-## 🚀 Projetos em destaque
+### 🔍 **Previsão de Crimes em Vitória/ES**
+Estudo sobre ocorrências de furtos e roubos usando dados da Secretaria de Segurança Pública do ES:
+- Geolocalização de crimes (heatmaps)
+- Identificação de padrões temporais
+- Criação de modelo preditivo com machine learning
 
-| Projeto | Descrição | Tecnologias |
-|--------|------------|-------------|
-| [Análise de Acidentes PRF 2024](link_para_o_projeto) | Análise exploratória com visualizações e categorização da gravidade de acidentes | Python, Pandas, NLP, Matplotlib |
-| [Segurança Pública ES 2024](link_para_o_projeto) | Estudo de padrões e hotspots de roubos/furtos em Vitória e região | Python, GeoPandas, Seaborn |
-| [Simulação de Cinema (ANCINE)](link_para_o_projeto) | Projeto de simulação com dados da exibição de filmes no Brasil | Arena Simulation, Python |
-| [Jogo da Vida Interativo](link_para_o_projeto) | Versão avançada com sons, temas e padrões de Conway | Python, Pygame |
+🔗 [Ver projeto no GitHub](https://github.com/fonsecadados/previsao-crimes)
+
+---
+
+### 📊 **Dashboard Interativo com Plotly**
+Visualização dinâmica de dados públicos:
+- Dashboards responsivos com filtros
+- Interface simples para stakeholders não técnicos
+- Publicado com Streamlit
+
+🔗 [Acessar projeto](https://github.com/fonsecadados/dashboard-plotly)
 
 ---
 
 ## 📫 Contato
 
-Fique à vontade para entrar em contato comigo por e-mail ou LinkedIn. Vamos conversar sobre dados, projetos e parcerias!
+- 💼 [LinkedIn](https://www.linkedin.com/in/syafonseca/)
+- 🐱 [GitHub](https://github.com/fonsecadados)
+- 📧 syafonseca@gmail.com
 
 ---
+
+📝 *Esta página é parte do meu portfólio pessoal, construída com GitHub Pages e Jekyll.*
 
