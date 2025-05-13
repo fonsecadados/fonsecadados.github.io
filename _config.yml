@@ -1,7 +1,8 @@
 title: Cayman theme
+logo: assets/img/avatar_copiar_crop.jpg
 description: Cayman is a clean, responsive theme for GitHub Pages.
 show_downloads: False
 google_analytics:
-theme: jekyll-theme-cayman
+theme: jekyll-theme-minimal
 title: [Syã Fonseca]
 description: [A short description of your site's purpose]
