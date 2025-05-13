@@ -6,3 +6,19 @@ description:  Profissional em transição de carreira, estudante de Ciência de
 show_downloads: False
 google_analytics:
 theme: jekyll-theme-minimal
+
+
+# Links de redes sociais
+social_links:
+  linkedin: https://www.linkedin.com/in/syafonseca/
+  github: https://github.com/fonsecadados
+  email: syafonseca@gmail.com
+
+# Personalizações adicionais
+author: Syã Fonseca
+lang: pt-BR
+url: "https://fonsecadados.github.io"
+baseurl: ""  # Substitua se estiver em um subdiretório (ex: "/portfolio")
+
+# SEO
+permalink: pretty
