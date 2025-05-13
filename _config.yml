@@ -1,9 +1,30 @@
-title: Minimal theme
+title: "Syã Fonseca"
 logo: /assets/img/foto_perfil_3.png
-description: Minimal is a theme for GitHub Pages.
-# show_downloads: False
-google_analytics:
+description: "Data insights drive better decisions"
+
 theme: jekyll-theme-minimal
 
 include:
   - _includes/header.html
+
+markdown: kramdown
+
+sass:
+  style: compressed
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      css: "/assets/css/custom.css"
+
+linkedin: https://www.linkedin.com/in/syafonseca/
+github: https://github.com/fonsecadados
+email: syafonseca@gmail.com
+author: Syã Fonseca
+lang: pt-BR
+
+url: "https://fonsecadados.github.io"
+baseurl: ""
+
+permalink: pretty
