@@ -4,10 +4,9 @@ description:  Data insights drive better decisions.
 show_downloads: False
 google_analytics:
 theme: jekyll-theme-minimal
-social_links:
-  linkedin: https://www.linkedin.com/in/syafonseca/
-  github: https://github.com/fonsecadados
-  email: syafonseca@gmail.com
+linkedin: https://www.linkedin.com/in/syafonseca/
+github: https://github.com/fonsecadados
+email: syafonseca@gmail.com
 author: Syã Fonseca
 lang: pt-BR
 url: "https://fonsecadados.github.io"
