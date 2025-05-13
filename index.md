@@ -1,4 +1,3 @@
-
 👋 Olá! Eu sou Syã Fonseca
 Sou um profissional em transição de carreira com 15 anos de experiência no setor audiovisual, atualmente me dedicando à área de Ciência de Dados.
 Estudante do 3º período de Ciência de Dados na Universidade Anhanguera, estou em busca de oportunidades de estágio para aplicar meus conhecimentos e crescer profissionalmente no setor de tecnologia.
