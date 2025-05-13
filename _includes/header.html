@@ -1,22 +1,78 @@
-<div style="text-align: left; padding: 30px 20px; max-width: 300px;">
-  <img src="{{ '/assets/img/foto_perfil_3.png' | relative_url }}" alt="Foto de perfil"
-       style="width: 100px; border-radius: 50%; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
+<style>
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 30px;
+    max-width: 300px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
 
-  <h1 style="margin: 10px 0 5px; font-size: 22px; letter-spacing: 1px;">SYÃ FONSECA</h1>
+  .profile-container img {
+    width: 110px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+  }
 
-  <p style="color: #555; text-transform: uppercase; font-size: 12px; letter-spacing: 1.5px;">
-    Data insights drive better decisions
-  </p>
+  .profile-container h1 {
+    margin: 0 0 5px;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #222;
+  }
 
-  <div style="margin-top: 10px;">
-    <a href="https://github.com/fonsecadados" style="margin-right: 10px;">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" width="20">
+  .profile-container p {
+    font-size: 13px;
+    color: #666;
+    margin: 0 0 15px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+  }
+
+  .profile-container .social-links a {
+    display: inline-block;
+    margin-right: 10px;
+    transition: transform 0.2s ease;
+  }
+
+  .profile-container .social-links a:hover {
+    transform: scale(1.15);
+  }
+
+  .profile-container .social-links img {
+    width: 22px;
+    height: 22px;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+  }
+
+  .profile-container .social-links img:hover {
+    filter: grayscale(0%);
+  }
+
+  @media (max-width: 600px) {
+    .profile-container {
+      align-items: center;
+      text-align: center;
+    }
+  }
+</style>
+
+<div class="profile-container">
+  <img src="{{ '/assets/img/foto_perfil_3.png' | relative_url }}" alt="Foto de perfil">
+  <h1>SYÃ FONSECA</h1>
+  <p>Data insights drive better decisions</p>
+  <div class="social-links">
+    <a href="https://github.com/fonsecadados" target="_blank">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub">
     </a>
-    <a href="https://www.linkedin.com/in/syafonseca/" style="margin-right: 10px;">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" width="20">
+    <a href="https://www.linkedin.com/in/syafonseca/" target="_blank">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn">
     </a>
     <a href="mailto:syafonseca@gmail.com">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Email" width="20">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Email">
     </a>
   </div>
 </div>
