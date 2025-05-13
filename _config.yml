@@ -1,17 +1,25 @@
 title: Syã Fonseca
 logo: /assets/img/foto_perfil_3.png
-description:  Data insights drive better decisions.
-show_downloads: False
-google_analytics:
+description: Data insights drive better decisions.
+show_downloads: false  # precisa ser tudo minúsculo: "false"
+google_analytics:      # se não for usar, pode remover ou deixar em branco
+
 theme: jekyll-theme-minimal
+
+# Inclui customizações no <head>
+include:
+  - _includes/head-custom.html
+
+# Informações de contato e autor
 linkedin: https://www.linkedin.com/in/syafonseca/
 github: https://github.com/fonsecadados
 email: syafonseca@gmail.com
 author: Syã Fonseca
 lang: pt-BR
-url: "https://fonsecadados.github.io"
-baseurl: ""  # Substitua se estiver em um subdiretório (ex: "/portfolio")
-permalink: pretty
 
-include:
-  - _includes/head-custom.html
+# Configurações de URL
+url: "https://fonsecadados.github.io"
+baseurl: ""  # Se for publicado direto no GitHub Pages principal. Mude para "/nome-do-repo" se necessário
+
+# Melhora as URLs (sem .html no final)
+permalink: pretty
