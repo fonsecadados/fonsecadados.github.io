@@ -1,34 +1,19 @@
-👋 Olá! Eu sou Syã Fonseca
-Sou um profissional em transição de carreira com 15 anos de experiência no setor audiovisual, atualmente me dedicando à área de Ciência de Dados.
-Estudante do 3º período de Ciência de Dados na Universidade Anhanguera, estou em busca de oportunidades de estágio para aplicar meus conhecimentos e crescer profissionalmente no setor de tecnologia.
 
-Tenho especial interesse em análise exploratória de dados, modelagem preditiva e uso de dados públicos para gerar impacto social.
+**Um Estudo sobre o perfil dos Agentes Econômicos da Indústria Cinematográfica Brasileira**
 
-📂 Portfólio de Projetos
-🚧 Análise de Acidentes Rodoviários - PRF 2024
-Exploração e segmentação de dados da Polícia Rodoviária Federal sobre acidentes em rodovias federais:
+![Gif Central do Brasil](assets/img/gif_central_do_brasil.webp)
 
-Cálculo de coeficiente de gravidade
-Classificação por tipos de acidentes e condições climáticas
-Visualizações com Seaborn e Matplotlib
-Agrupamento semântico de causas com NLP
-🔗 Ver projeto no GitHub
+A indústria cinematográfica de um país reflete sua cultura, sociedade, aspirações e desafios. No Brasil, embora o setor seja ativo e produza muitos filmes anualmente, enfrenta forte concorrência do cinema estrangeiro, especialmente o norte-americano, que domina o mercado audiovisual graças a grandes orçamentos e apelo comercial.
 
-🔍 Previsão de Crimes em Vitória/ES
-Estudo sobre ocorrências de furtos e roubos usando dados da Secretaria de Segurança Pública do ES:
+Essa disparidade se agrava pela dificuldade que cineastas independentes e produções menores têm em acessar financiamento e distribuição, enquanto grandes estúdios contam com mais recursos. Políticas públicas e incentivos governamentais, como subsídios e financiamento, são fundamentais para fortalecer a produção nacional e ampliar a diversidade no cinema brasileiro.
 
-Geolocalização de crimes (heatmaps)
-Identificação de padrões temporais
-Criação de modelo preditivo com machine learning
-🔗 Ver projeto no GitHub
+Na ANCINE (Agência Nacional do Cinema), agentes econômicos são pessoas físicas ou jurídicas que atuam na cadeia produtiva audiovisual, abrangendo produtoras, distribuidoras, empresas exibidoras, programadoras e licenciamento.
 
-📊 Dashboard Interativo com Plotly
-Visualização dinâmica de dados públicos:
+![MAPA AGENTES](assets/img/mapa_distribuicao_agentes_economicos.png)
 
-Dashboards responsivos com filtros
-Interface simples para stakeholders não técnicos
-Publicado com Streamlit
-🔗 Acessar projeto
+O gráfico acima mostra a distribuição dos Agentes Econômicos no País
+
+
 
 📫 Contato
 💼 LinkedIn
