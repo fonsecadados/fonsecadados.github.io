@@ -11,7 +11,7 @@ Na ANCINE (Agência Nacional do Cinema), agentes econômicos são pessoas físic
 
 ![MAPA AGENTES](assets/img/mapa_distribuicao_agentes_economicos.png)
 
-O gráfico acima mostra a distribuição dos Agentes Econômicos no País
+O gráfico acima mostra a distribuição dos Agentes Econômicos no País 
 
 
 
