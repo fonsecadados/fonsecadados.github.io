@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Syã Fonseca | Ciência de Dados</title>
+  <title>Syã Fonseca | Ciência de Dados para Negócios</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -15,94 +15,171 @@
 <body class="bg-gray-50">
 
   <!-- Navegação -->
-  <nav class="bg-white shadow-sm border-b border-gray-200">
-    <div class="max-w-4xl mx-auto px-4 py-4">
+  <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-10">
+    <div class="max-w-6xl mx-auto px-4 py-4">
       <div class="flex justify-between items-center">
-        <a href="/" class="text-xl font-bold text-gray-800">Syã</a>
+        <a href="/" class="text-xl font-bold text-gray-800">Syã Fonseca</a>
         <div class="space-x-6">
           <a href="/" class="text-gray-600 hover:text-gray-900 transition">Início</a>
+          <a href="#projetos" class="text-gray-600 hover:text-gray-900 transition">Projetos</a>
+          <a href="#servicos" class="text-gray-600 hover:text-gray-900 transition">Serviços</a>
+          <a href="#contato" class="text-gray-600 hover:text-gray-900 transition">Contato</a>
           <a href="https://github.com/fonsecadados" target="_blank" class="text-gray-600 hover:text-gray-900 transition">GitHub</a>
           <a href="https://www.linkedin.com/in/syafonseca/" target="_blank" class="text-gray-600 hover:text-gray-900 transition">LinkedIn</a>
         </div>
       </div>
     </div>
   </nav>
-  <!-- Hero Section com Imagem -->
-  <section class="relative bg-gray-900 text-white border-b border-gray-200">
-    <div class="absolute inset-0 bg-cover bg-center opacity-40" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
-    <div class="relative max-w-4xl mx-auto px-4 py-20 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Olá, Seja Bem-Vindo!<br>Eu sou Syã Fonseca</h1>
-      <p class="text-xl md:text-2xl text-gray-200">Cientista de Dados com foco em Machine Learning.</p>
-    </div>
-  </section>
 
-  <!-- Conteúdo Principal -->
-  <main class="max-w-4xl mx-auto px-4 py-12">
-
-    <!-- Post em destaque -->
-    <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden mb-12 hover:shadow-md transition">
-      <div class="p-8">
-        <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
-          <span>📊</span>
-          <span>15 de janeiro de 2025</span>
-          <span>•</span>
-          <span class="text-blue-600">ANCINE • Python • Dados Geoespaciais</span>
-        </div>
-        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-          Análise dos Agentes Econômicos da Indústria Cinematográfica Brasileira
-        </h2>
-        <p class="text-gray-600 text-lg leading-relaxed mb-6">
-          Um estudo sobre a distribuição regional de produtoras, distribuidoras e exibidoras no Brasil a partir de dados públicos da ANCINE. O projeto revelou a forte concentração de agentes no Sudeste e a escassez de distribuidoras nas regiões Norte e Centro-Oeste.
-        </p>
-        <a href="posts/analise-cinema-brasileiro.html" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition">
-          Ler artigo completo
+  <!-- Hero Section com Proposta de Valor -->
+  <section class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-20 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Syã Fonseca</h1>
+      <p class="text-xl md:text-2xl text-blue-100 mb-6">Ciência de Dados para Crescimento de Negócios</p>
+      <p class="text-lg md:text-xl text-blue-50 max-w-3xl mx-auto">
+        Transformando dados em decisões estratégicas e resultados tangíveis para empresas.
+      </p>
+      <div class="mt-8">
+        <a href="#contato" class="inline-flex items-center px-6 py-3 bg-white text-blue-700 font-semibold rounded-lg hover:bg-gray-100 transition">
+          Transforme Seus Dados em Vantagem Competitiva
           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
           </svg>
         </a>
       </div>
-    </article>
-
-    <!-- Newsletter / Contato -->
-    <div class="bg-blue-50 rounded-lg border border-blue-100 p-8 text-center mb-12">
-      <h3 class="text-xl font-semibold text-gray-900 mb-2">📬 Vamos conversar?</h3>
-      <p class="text-gray-600 mb-4">Acompanhe meus projetos e estudos.</p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="https://github.com/fonsecadados" target="_blank" class="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition">
-          GitHub
-        </a>
-        <a href="https://linkedin.com/in/syafonseca" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition">
-          LinkedIn
-        </a>
-        <span class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-700 rounded-lg cursor-not-allowed">
-          ✉️ syafonseca@gmail.com
-        </span>
-      </div>
     </div>
+  </section>
 
-    <!-- Sobre o autor (mais completo) -->
-    <div class="bg-white rounded-lg border border-gray-200 p-8">
-      <div class="flex items-center gap-3 mb-4">
-        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-          <span class="text-blue-600 font-bold">S</span>
+  <!-- Seção: Como Posso Ajudar (Serviços) -->
+  <section id="servicos" class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Como posso ajudar seu negócio</h2>
+        <p class="text-xl text-gray-600">Soluções em dados para problemas reais de empresas</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center hover:shadow-md transition">
+          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">📊</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Otimização de Processos</h3>
+          <p class="text-gray-600">Automação e otimização de workflows utilizando Machine Learning para redução de custos e aumento de eficiência.</p>
         </div>
-        <h3 class="text-xl font-semibold text-gray-900">Sobre o autor</h3>
+        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center hover:shadow-md transition">
+          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">🔮</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Análise Preditiva</h3>
+          <p class="text-gray-600">Previsão de tendências, demanda e comportamento para tomada de decisão antecipada.</p>
+        </div>
+        <div class="bg-gray-50 rounded-lg p-6 border border-gray-200 text-center hover:shadow-md transition">
+          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">📈</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">Dashboards & BI</h3>
+          <p class="text-gray-600">Visualizações interativas que transformam dados em insights acionáveis para sua gestão.</p>
+        </div>
       </div>
-      <p class="text-gray-600 leading-relaxed mb-4">
-        Syã Fonseca atua em projetos de Ciência de Dados, com foco na transformação de dados em insights orientados à tomada de decisão. Desenvolve soluções que vão desde pipelines de ETL até aplicações de inteligência artificial, sempre com abordagem prática e orientada a resultados. Acredita no compartilhamento de conhecimento como parte essencial do aprendizado contínuo.
-      </p>
-      <p class="text-gray-600">
-        🎓 <strong>Formação:</strong> Tecnólogo em Ciência de Dados (concluindo em 2026/2)
-      </p>
     </div>
+  </section>
 
-  </main>
+  <!-- Projeto em destaque com foco em RESULTADOS -->
+  <section id="projetos" class="py-16 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Projeto em destaque</h2>
+        <p class="text-xl text-gray-600">Resultados reais a partir de dados</p>
+      </div>
+      <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+        <div class="p-8">
+          <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+            <span>📊</span>
+            <span>15 de janeiro de 2025</span>
+            <span>•</span>
+            <span class="text-blue-600">ANCINE • Python • Dados Geoespaciais</span>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            Análise dos Agentes Econômicos da Indústria Cinematográfica Brasileira
+          </h3>
+          
+          <!-- Problema de Negócio -->
+          <div class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-6">
+            <p class="font-semibold text-gray-900 mb-1">🎯 Problema de Negócio:</p>
+            <p class="text-gray-700">A indústria cinematográfica brasileira carecia de uma compreensão clara da distribuição regional de seus agentes econômicos, dificultando a identificação de oportunidades de investimento e desenvolvimento em regiões menos atendidas.</p>
+          </div>
+          
+          <!-- Solução de Dados -->
+          <div class="bg-gray-50 border-l-4 border-gray-600 p-4 mb-6">
+            <p class="font-semibold text-gray-900 mb-1">⚙️ Solução de Dados:</p>
+            <p class="text-gray-700">Utilizei dados públicos da ANCINE com Python e técnicas de dados geoespaciais para mapear a concentração de produtoras, distribuidoras e exibidoras em todo o território nacional.</p>
+          </div>
+          
+          <!-- Impacto/Resultado -->
+          <div class="bg-green-50 border-l-4 border-green-600 p-4 mb-6">
+            <p class="font-semibold text-gray-900 mb-1">📈 Impacto/Resultado:</p>
+            <p class="text-gray-700">O estudo revelou <strong>concentração de 60% dos agentes no Sudeste</strong> e escassez crítica de distribuidoras nas regiões Norte e Centro-Oeste. O forneceu <strong>insights estratégicos</strong> para órgãos de fomento e investidores direcionarem recursos para mercados emergentes.</p>
+          </div>
+          
+          <a href="posts/analise-cinema-brasileiro.html" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition">
+            Ver estudo completo
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Contato com CTAs fortes -->
+  <section id="contato" class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 md:p-12 text-white">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">Pronto para transformar seus dados em resultados?</h2>
+        <p class="text-blue-100 mb-8 text-lg">Agende uma conversa e descubra como a Ciência de Dados pode impulsionar seu negócio.</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="https://github.com/fonsecadados" target="_blank" class="inline-flex items-center px-6 py-3 bg-white text-gray-800 font-semibold rounded-lg hover:bg-gray-100 transition">
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/syafonseca/" target="_blank" class="inline-flex items-center px-6 py-3 bg-blue-800 text-white font-semibold rounded-lg hover:bg-blue-900 transition">
+            LinkedIn
+          </a>
+          <a href="mailto:syafonseca@email.com" class="inline-flex items-center px-6 py-3 bg-gray-100 text-gray-800 font-semibold rounded-lg hover:bg-gray-200 transition">
+            ✉️ E-mail
+          </a>
+        </div>
+        <p class="text-blue-100 text-sm mt-6">Resposta em até 24 horas úteis</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre o autor - versão profissional -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="bg-white rounded-lg border border-gray-200 p-8">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+            <span class="text-blue-600 font-bold">S</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900">Sobre Syã Fonseca</h3>
+        </div>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Atuo em projetos de <strong>Ciência de Dados</strong> com foco na transformação de dados em <strong>insights orientados à tomada de decisão</strong>. Desenvolvo soluções que vão desde pipelines de ETL até aplicações de Machine Learning, sempre com abordagem prática e orientada a resultados de negócio.
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Especializado em transformar problemas de negócio em soluções analíticas escaláveis, entregando valor tangível para empresas de diferentes setores.
+        </p>
+        <p class="text-gray-600">
+          🎓 <strong>Formação:</strong> Tecnólogo em Ciência de Dados (concluindo em 2026/2)
+        </p>
+      </div>
+    </div>
+  </section>
 
   <!-- Rodapé -->
-  <footer class="border-t border-gray-200 mt-16 py-8">
-    <div class="max-w-4xl mx-auto px-4 text-center text-gray-500 text-sm">
-      <p>Gostou do conteúdo? Compartilhe e deixe suas dúvidas nos comentários.</p>
-      <p class="mt-2">© 2026 Syã Fonseca. Todos os direitos reservados.</p>
+  <footer class="border-t border-gray-200 py-8 bg-white">
+    <div class="max-w-6xl mx-auto px-4 text-center text-gray-500 text-sm">
+      <p>© 2025 Syã Fonseca. Todos os direitos reservados.</p>
     </div>
   </footer>
 
