@@ -4,39 +4,106 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Syã Fonseca | Ciência de Dados</title>
-  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
 </head>
-<body>
-  <div class="container">
-    <header class="site-header">
-      <h1>Syã Fonseca</h1>
-      <p>Inteligência em dados, poder em decisões.</p>
-    </header>
+<body class="bg-gray-50">
 
-    <main>
-      <article class="post">
-        <h2><a href="posts/analise-cinema-brasileiro.html">Análise dos Agentes Econômicos da Indústria Cinematográfica Brasileira</a></h2>
-        <div class="date">15 de janeiro de 2025 | ANCINE, Python, dados-geograficos</div>
-        <div class="excerpt">
-          <p>Um estudo sobre a distribuição regional de produtoras, distribuidoras e exibidoras no Brasil a partir de dados públicos da ANCINE. O projeto revelou a forte concentração de agentes no Sudeste e a escassez de distribuidoras nas regiões Norte e Centro-Oeste.</p>
-        </div>
-      </article>
-
-      <div class="author-section">
-        <strong>Sobre o autor</strong>
-        <p>Syã Fonseca é estudante de Ciência de Dados no último semestre. Transforma dados em insights através de projetos práticos – do primeiro ETL ao primeiro agente de IA. Acredita que compartilhar conhecimento é a melhor forma de aprender.</p>
-        <div class="social-links">
-          <a href="https://github.com/fonsecadados" target="_blank">GitHub</a>
-          <a href="https://linkedin.com/in/seu-perfil" target="_blank">LinkedIn</a>
-          <a href="mailto:seu-email@exemplo.com">E-mail</a>
+  <!-- Navegação -->
+  <nav class="bg-white shadow-sm border-b border-gray-200">
+    <div class="max-w-4xl mx-auto px-4 py-4">
+      <div class="flex justify-between items-center">
+        <a href="/" class="text-xl font-bold text-gray-800">Syã Fonseca</a>
+        <div class="space-x-6">
+          <a href="/" class="text-gray-600 hover:text-gray-900 transition">Início</a>
+          <a href="https://github.com/fonsecadados" target="_blank" class="text-gray-600 hover:text-gray-900 transition">GitHub</a>
         </div>
       </div>
-    </main>
+    </div>
+  </nav>
 
-    <footer class="footer">
+  <!-- Hero Section -->
+  <section class="bg-white border-b border-gray-200">
+    <div class="max-w-4xl mx-auto px-4 py-16 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Syã Fonseca</h1>
+      <p class="text-xl text-gray-600">Inteligência em dados, poder em decisões.</p>
+    </div>
+  </section>
+
+  <!-- Conteúdo Principal -->
+  <main class="max-w-4xl mx-auto px-4 py-12">
+
+    <!-- Post em destaque -->
+    <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden mb-12 hover:shadow-md transition">
+      <div class="p-8">
+        <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+          <span>📊</span>
+          <span>15 de janeiro de 2025</span>
+          <span>•</span>
+          <span class="text-blue-600">ANCINE • Python • Dados Geoespaciais</span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+          Análise dos Agentes Econômicos da Indústria Cinematográfica Brasileira
+        </h2>
+        <p class="text-gray-600 text-lg leading-relaxed mb-6">
+          Um estudo sobre a distribuição regional de produtoras, distribuidoras e exibidoras no Brasil a partir de dados públicos da ANCINE. O projeto revelou a forte concentração de agentes no Sudeste e a escassez de distribuidoras nas regiões Norte e Centro-Oeste.
+        </p>
+        <a href="posts/analise-cinema-brasileiro.html" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-700 transition">
+          Ler artigo completo
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </article>
+
+    <!-- Newsletter / Contato -->
+    <div class="bg-blue-50 rounded-lg border border-blue-100 p-8 text-center mb-12">
+      <h3 class="text-xl font-semibold text-gray-900 mb-2">📬 Vamos conversar?</h3>
+      <p class="text-gray-600 mb-4">Acompanhe meus projetos e estudos.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://github.com/fonsecadados" target="_blank" class="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition">
+          GitHub
+        </a>
+        <a href="https://linkedin.com/in/seu-perfil" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition">
+          LinkedIn
+        </a>
+        <span class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-700 rounded-lg cursor-not-allowed">
+          ✉️ seu-email@exemplo.com
+        </span>
+      </div>
+    </div>
+
+    <!-- Sobre o autor (mais completo) -->
+    <div class="bg-white rounded-lg border border-gray-200 p-8">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+          <span class="text-blue-600 font-bold">S</span>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900">Sobre o autor</h3>
+      </div>
+      <p class="text-gray-600 leading-relaxed mb-4">
+        Syã Fonseca é estudante de <strong>Ciência de Dados</strong> no último semestre. Transforma dados em insights através de projetos práticos – do primeiro ETL ao primeiro agente de IA. Acredita que compartilhar conhecimento é a melhor forma de aprender.
+      </p>
+      <p class="text-gray-600">
+        🎓 <strong>Formação:</strong> Tecnólogo em Ciência de Dados (concluindo em 2025/2)
+      </p>
+    </div>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="border-t border-gray-200 mt-16 py-8">
+    <div class="max-w-4xl mx-auto px-4 text-center text-gray-500 text-sm">
       <p>Gostou do conteúdo? Compartilhe e deixe suas dúvidas nos comentários.</p>
-      <p>&copy; 2025 Syã Fonseca</p>
-    </footer>
-  </div>
+      <p class="mt-2">© 2025 Syã Fonseca. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
