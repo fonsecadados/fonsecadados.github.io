@@ -5,56 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Syã Fonseca | Ciência de Dados para Negócios</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
   </style>
 </head>
 <body class="bg-gray-50">
 
-  <!-- Navegação -->
-  <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-10">
-    <div class="max-w-6xl mx-auto px-4 py-4">
-      <div class="flex justify-between items-center">
-        <a href="/" class="text-xl font-bold text-gray-800">Syã Fonseca</a>
-        <div class="space-x-6">
-          <a href="/" class="text-gray-600 hover:text-gray-900 transition">Início</a>
-          <a href="#projetos" class="text-gray-600 hover:text-gray-900 transition">Projetos</a>
-          <a href="#servicos" class="text-gray-600 hover:text-gray-900 transition">Serviços</a>
-          <!-- <a href="#contato" class="text-gray-600 hover:text-gray-900 transition">Contato</a> -->
-          <a href="https://github.com/fonsecadados" target="_blank" class="text-gray-600 hover:text-gray-900 transition">GitHub</a>
-          <a href="https://www.linkedin.com/in/syafonseca/" target="_blank" class="text-gray-600 hover:text-gray-900 transition">LinkedIn</a>
+    <!-- Navegação com Dropdown (sem cabeçalho) -->
+    <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-10">
+      <div class="max-w-6xl mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+          <!-- Dropdown no Nome com ícone ☰ (lado esquerdo) -->
+          <div class="relative group">
+            <button class="text-xl font-bold text-cyan-950 hover:text-cyan-800 transition flex items-center gap-2">
+              Syã
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+            <div class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-20">
+              <!-- Apenas as opções do menu, sem cabeçalho -->
+              <a href="/" class="block px-4 py-2 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600">Início</a>
+              <a href="#projetos" class="block px-4 py-2 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600">Projetos</a>
+              <a href="#servicos" class="block px-4 py-2 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600">Serviços</a>
+              <a href="#contato" class="block px-4 py-2 text-gray-700 hover:bg-cyan-50 hover:text-cyan-600">Contato</a>
+            </div>
+          </div>
+          
+          <!-- Links lado direito -->
+          <div class="space-x-6">
+            <a href="https://github.com/fonsecadados" target="_blank" class="text-gray-600 hover:text-gray-900 transition">GitHub</a>
+            <a href="https://www.linkedin.com/in/syafonseca/" target="_blank" class="text-gray-600 hover:text-gray-900 transition">LinkedIn</a>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <!-- Hero Section com Imagem de Fundo -->
-  <section class="relative bg-gray-900 text-white" style="background-image: url('assets/img/AdobeStock_417575370_0.jpeg'); background-size: cover; background-position: center;">
-    <!-- Overlay escuro para o texto ficar legível -->
-    <div class="absolute inset-0 bg-black/50"></div>
+  <script>
+    // Toggle mobile menu
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
     
-    <!-- Conteúdo -->
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+
+<section class="relative bg-white">
+    <div class="absolute inset-0 bg-cover bg-center opacity-90" style="background-image: url('assets/img/home.png'); background-position: center 75% left 20%;"></div>
+    <div class="absolute inset-0 bg-black/40"></div>
     <div class="relative max-w-6xl mx-auto px-4 py-20 text-center">
-      <!-- Texto pequeno de saudação -->
-      <p class="text-sm md:text-base text-blue-200 uppercase tracking-wider mb-4">Olá, Seja Bem-Vindo(a)!</p>
-      
-      <!-- Nome em destaque -->
-      <h1 class="text-5xl md:text-7xl font-bold mb-4">Syã Fonseca</h1>
-      
-      <!-- Subtítulo profissional -->
-      <p class="text-xl md:text-2xl text-blue-100 mb-6">Ciência de Dados para Crescimento de Negócios</p>
-      
-      <!-- Descrição -->
-      <p class="text-lg md:text-xl text-blue-50 max-w-3xl mx-auto">
-        Transformando dados em decisões estratégicas e resultados tangíveis para empresas.
+      <p class="text-2xl md:text-base text-white capitalize tracking-wider mb-1">Olá, Seja Bem-Vindo(a) ao meu</p>
+      <h1 class="text-5xl md:text-4xl font-bold text-gray-200 mb-2">Portfólio & Blog</h1>
+      <p class="text-2xl md:text-base text-gray-200 mb-1 opacity-80">por</p>
+      <h1 class="text-5xl md:text-7xl font-bold text-white mb-4">Syã Fonseca</h1>
+      <p class="text-lg md:text-xl text-white max-w-3xl mx-auto">
+        Ciência de Dados | Estatística | Machine Learning | Automações
       </p>
-      
-      <!-- Botão -->
       <div class="mt-8">
-        <a href="#projetos" class="inline-flex items-center px-6 py-3 bg-white text-blue-700 font-semibold rounded-lg hover:bg-gray-100 transition">
+        <a href="#projetos" class="inline-flex items-center px-6 py-3 bg-cyan-800 text-white font-semibold rounded-lg hover:bg-cyan-700 transition">
           Conheça meu trabalho
           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
