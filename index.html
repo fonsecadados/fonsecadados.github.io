@@ -392,33 +392,162 @@
               </div>
             </div>
 
-            <!-- ==================== CERTIFICADOS ==================== -->
+            <!-- Carrossel de Certificados -->
             <div class="mb-8">
               <p class="text-xs text-cyan-600 font-semibold uppercase mb-1">Certificações</p>
               <h2 class="text-base font-bold text-cyan-900 mb-4">Cursos & Certificados</h2>
-              <div class="space-y-2">
-                <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition">
-                  <span class="w-2 h-2 rounded-full bg-cyan-600 shrink-0"></span>
-                  <div><p class="text-sm text-gray-800 font-medium">Automações com n8n</p><p class="text-xs text-gray-500">DIO · 2026</p></div>
+
+              <!-- Carrossel -->
+              <div class="relative">
+                <!-- Container do carrossel -->
+                <div class="overflow-hidden rounded-xl">
+                  <div id="certCarousel" class="flex transition-transform duration-500 ease-out">
+                    
+                    <!-- Slide 1 -->
+                    <div class="w-full flex-shrink-0 px-3">
+                      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <img src="assets/img/certificados/bootcamp_2023.png" alt="Certificado bootcamp" class="w-full h-[450px] object-cover bg-gray-100">
+                        <div class="p-4">
+                          <h3 class="text-sm font-bold text-gray-800">Santander Bootcamp 2023 - Ciência de Dados com Python</h3>
+                          <p class="text-xs text-gray-500">DIO · 2023</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="w-full flex-shrink-0 px-3">
+                      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <img src="assets/img/certificados/santander_n8n.png" alt="Certificado bootcamp" class="w-full h-[450px] object-cover bg-gray-100">
+                        <div class="p-4">
+                          <h3 class="text-sm font-bold text-gray-800">Santander Bootcamp 2023 - Ciência de Dados com Python</h3>
+                          <p class="text-xs text-gray-500">DIO · 2023</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="w-full flex-shrink-0 px-2">
+                      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <img src="assets/img/certificados/python-data-analytics.jpg" alt="Certificado Python Data Analytics" class="w-full h-40 object-cover bg-gray-100">
+                        <div class="p-4">
+                          <h3 class="text-sm font-bold text-gray-800">Python Data Analytics</h3>
+                          <p class="text-xs text-gray-500">DIO · 2024</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="w-full flex-shrink-0 px-2">
+                      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <img src="assets/img/certificados/foundations-bi.jpg" alt="Certificado Foundations of BI" class="w-full h-40 object-cover bg-gray-100">
+                        <div class="p-4">
+                          <h3 class="text-sm font-bold text-gray-800">Foundations of Business Intelligence</h3>
+                          <p class="text-xs text-gray-500">Coursera · 2023</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="w-full flex-shrink-0 px-2">
+                      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <img src="assets/img/certificados/data-analysis-python.jpg" alt="Certificado Data Analysis with Python" class="w-full h-40 object-cover bg-gray-100">
+                        <div class="p-4">
+                          <h3 class="text-sm font-bold text-gray-800">Data Analysis with Python</h3>
+                          <p class="text-xs text-gray-500">FreeCodeCamp · 2023</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Slide 5 -->
+                    <div class="w-full flex-shrink-0 px-2">
+                      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <img src="assets/img/certificados/python-basico.jpg" alt="Certificado Python Básico" class="w-full h-40 object-cover bg-gray-100">
+                        <div class="p-4">
+                          <h3 class="text-sm font-bold text-gray-800">Python 3 Básico ao Avançado</h3>
+                          <p class="text-xs text-gray-500">Udemy · 2023</p>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
                 </div>
-                <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition">
-                  <span class="w-2 h-2 rounded-full bg-cyan-600 shrink-0"></span>
-                  <div><p class="text-sm text-gray-800 font-medium">Python Data Analytics</p><p class="text-xs text-gray-500">DIO · 2024</p></div>
-                </div>
-                <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition">
-                  <span class="w-2 h-2 rounded-full bg-cyan-500 shrink-0"></span>
-                  <div><p class="text-sm text-gray-800 font-medium">Foundations of Business Intelligence</p><p class="text-xs text-gray-500">Coursera · 2023</p></div>
-                </div>
-                <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition">
-                  <span class="w-2 h-2 rounded-full bg-cyan-400 shrink-0"></span>
-                  <div><p class="text-sm text-gray-800 font-medium">Data Analysis with Python</p><p class="text-xs text-gray-500">FreeCodeCamp · 2023</p></div>
-                </div>
-                <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50 transition">
-                  <span class="w-2 h-2 rounded-full bg-gray-400 shrink-0"></span>
-                  <div><p class="text-sm text-gray-800 font-medium">Python 3 Básico ao Avançado</p><p class="text-xs text-gray-500">Udemy · 2023</p></div>
-                </div>
+
+                <!-- Botão anterior -->
+                <button id="prevCert" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition">
+                  <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+
+                <!-- Botão próximo -->
+                <button id="nextCert" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 shadow-md transition">
+                  <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+
               </div>
+
+              <!-- Indicadores (dots) -->
+              <div class="flex justify-center gap-2 mt-4" id="certDots"></div>
             </div>
+
+            <!-- Script do carrossel -->
+            <script>
+            (function() {
+              const carousel = document.getElementById('certCarousel');
+              const slides = carousel ? carousel.children : [];
+              const prevBtn = document.getElementById('prevCert');
+              const nextBtn = document.getElementById('nextCert');
+              const dotsContainer = document.getElementById('certDots');
+              let currentIndex = 0;
+              let totalSlides = slides.length;
+
+              if (!carousel || totalSlides === 0) return;
+
+              // Atualiza posição do carrossel
+              function updateCarousel() {
+                const slideWidth = slides[0].offsetWidth;
+                carousel.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+                updateDots();
+              }
+
+              // Cria dots
+              function createDots() {
+                if (!dotsContainer) return;
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < totalSlides; i++) {
+                  const dot = document.createElement('button');
+                  dot.className = `w-2 h-2 rounded-full transition-all mx-1 ${i === currentIndex ? 'bg-cyan-600 w-4' : 'bg-gray-300'}`;
+                  dot.addEventListener('click', () => {
+                    currentIndex = i;
+                    updateCarousel();
+                  });
+                  dotsContainer.appendChild(dot);
+                }
+              }
+
+              function updateDots() {
+                const dots = dotsContainer?.children;
+                if (!dots) return;
+                for (let i = 0; i < dots.length; i++) {
+                  dots[i].className = `w-2 h-2 rounded-full transition-all mx-1 ${i === currentIndex ? 'bg-cyan-600 w-4' : 'bg-gray-300'}`;
+                }
+              }
+
+              // Eventos dos botões
+              prevBtn?.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+              });
+
+              nextBtn?.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarousel();
+              });
+
+              // Ajusta ao redimensionar a tela (recalcula posição)
+              window.addEventListener('resize', () => updateCarousel());
+
+              createDots();
+              updateCarousel();
+            })();
+            </script>
 
           </div>
         </div>
