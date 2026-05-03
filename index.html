@@ -377,18 +377,18 @@
 
               <!-- Tabs -->
               <div class="flex flex-wrap gap-2 justify-start mb-8" id="skillTabs">
-                <button onclick="switchSkill('dados')" id="tab-dados" class="skill-tab active-tab px-4 py-1.5 rounded-full text-xs font-medium transition-all">Análise de Dados</button>
-                <button onclick="switchSkill('ml')" id="tab-ml" class="skill-tab inactive-tab px-4 py-1.5 rounded-full text-xs font-medium transition-all border border-gray-200 text-gray-500 hover:border-cyan-400 hover:text-cyan-700">Machine Learning</button>
-                <button onclick="switchSkill('ferramentas')" id="tab-ferramentas" class="skill-tab inactive-tab px-4 py-1.5 rounded-full text-xs font-medium transition-all border border-gray-200 text-gray-500 hover:border-cyan-400 hover:text-cyan-700">Ferramentas</button>
-                <button onclick="switchSkill('soft')" id="tab-soft" class="skill-tab inactive-tab px-4 py-1.5 rounded-full text-xs font-medium transition-all border border-gray-200 text-gray-500 hover:border-cyan-400 hover:text-cyan-700">Soft Skills</button>
+                <button onclick="switchSkill('dados')" id="tab-dados" class="skill-tab active-tab px-4 py-1.5 rounded-full text-[15px] font-medium transition-all">Engenharia & Manipulação de Dados</button>
+                <button onclick="switchSkill('ml')" id="tab-ml" class="skill-tab inactive-tab px-4 py-1.5 rounded-full text-[15px] font-medium transition-all border border-gray-200 text-gray-500 hover:border-cyan-400 hover:text-cyan-700">Machine Learning & Inteligência Artificial</button>
+                <button onclick="switchSkill('ferramentas')" id="tab-ferramentas" class="skill-tab inactive-tab px-4 py-1.5 rounded-full text-[15px] font-medium transition-all border border-gray-200 text-gray-500 hover:border-cyan-400 hover:text-cyan-700">Automação & Ferramentas de Desenvolvimento</button>
+                <button onclick="switchSkill('soft')" id="tab-soft" class="skill-tab inactive-tab px-4 py-1.5 rounded-full text-[15px] font-medium transition-all border border-gray-200 text-gray-500 hover:border-cyan-400 hover:text-cyan-700">Soft Skills & Comunicação</button>
               </div>
 
               <!-- Radar + Barras lado a lado -->
-              <div class="flex flex-col sm:flex-row gap-6 items-start justify-between mb-8">
+              <div class="flex flex-col gap-6 items-start justify-center mb-1">
                 
                 <!-- Radar chart -->
-                <div class="shrink-0 mx-auto sm:mx-0" style="width:260px; height:260px;">
-                  <canvas id="radarSkill" width="260" height="260"></canvas>
+                <div class="shrink-0 mx-auto" style="width:550px; height:550px;">
+                  <canvas id="radarSkill" class="w-full h-full"></canvas>
                 </div>
 
                 <!-- Barras de progresso -->
@@ -702,27 +702,26 @@
 
     const skillData = {
       dados: {
-        labels: ['Python', 'Pandas', 'SQL', 'Estatística', 'ETL', 'Visualização'],
+        labels: ['ETL/ELT Pipelines', 'Modelagem de Dados', 'SQL', 'Data Wrangling', 'Data Warehousing', 'Visualização'],
         values: [80, 78, 72, 68, 65, 75],
         details: [
-          { name: 'Python', note: 'Pandas, NumPy, automações' },
-          { name: 'Pandas', note: 'EDA, limpeza, transformações' },
+          { name: 'ETL/ELT Pipelines', note: 'Pandas, NumPy, automações' },
+          { name: 'Modelagem de Dados', note: 'Design de modelos de dados' },
           { name: 'SQL', note: 'MySQL, PostgreSQL, queries' },
-          { name: 'Estatística', note: 'Descritiva, probabilidade' },
-          { name: 'ETL', note: 'Pipelines de dados' },
-          { name: 'Visualização', note: 'Matplotlib, Seaborn, Plotly' },
+          { name: 'Data Wrangling', note: 'Limpeza e transformação de dados' },
+          { name: 'Data Warehousing', note: 'Armazenamento e organização de dados' }
         ],
       },
       ml: {
-        labels: ['Scikit-learn', 'Regressão', 'Classificação', 'Clustering', 'Feature Eng.', 'Avaliação'],
+        labels: ['Prompt Engineering', 'LLM Orchestration', 'RAG', 'Model Fine-tuning', 'MLOps Fundamentals', 'Deep Learning'],
         values: [70, 72, 68, 60, 65, 67],
         details: [
-          { name: 'Scikit-learn', note: 'Pipeline, GridSearch' },
-          { name: 'Regressão', note: 'Linear, Ridge, Lasso' },
-          { name: 'Classificação', note: 'Decision Tree, Random Forest' },
-          { name: 'Clustering', note: 'K-Means, DBSCAN' },
-          { name: 'Feature Eng.', note: 'Encoding, scaling, seleção' },
-          { name: 'Avaliação', note: 'Métricas, cross-validation' },
+          { name: 'Prompt Engineering', note: 'Pipeline, GridSearch' },
+          { name: 'LLM Orchestration', note: 'Management de modelos de linguagem' },
+          { name: 'RAG', note: 'Retrieval-Augmented Generation' },
+          { name: 'Model Fine-tuning', note: 'Ajuste de parâmetros, transfer learning' },
+          { name: 'MLOps Fundamentals', note: 'Deploy, monitoramento, pipelines' },
+          { name: 'Deep Learning', note: 'Redes neurais, TensorFlow, PyTorch' },
         ],
       },
       ferramentas: {
@@ -767,15 +766,27 @@
       const p = palette[tab];
       if (radarChart) radarChart.destroy();
       const ctx = document.getElementById('radarSkill').getContext('2d');
+      const formattedLabels = d.labels.map(label => {
+      const words = label.split(' ');
+
+      if (words.length === 1) return label;
+
+      // quebra no meio
+      const middle = Math.ceil(words.length / 2);
+      return [
+        words.slice(0, middle).join(' '),
+        words.slice(middle).join(' ')
+      ];
+    });
       radarChart = new Chart(ctx, {
         type: 'radar',
         data: {
-          labels: d.labels,
+          labels: formattedLabels,
           datasets: [{
             data: d.values,
             borderColor: p.main,
             backgroundColor: p.fill,
-            borderWidth: 2,
+            borderWidth: 3,
             pointBackgroundColor: p.main,
             pointBorderColor: '#fff',
             pointBorderWidth: 1.5,
@@ -785,9 +796,10 @@
         },
         options: {
           responsive: true,
-          maintainAspectRatio: true,
+          maintainAspectRatio: false,
+          layout: { padding: 5 },
           plugins: { legend: { display: false } },
-          scales: { r: { min: 0, max: 100, ticks: { stepSize: 25, display: false }, grid: { color: 'rgba(0,0,0,0.07)' }, angleLines: { color: 'rgba(0,0,0,0.07)' }, pointLabels: { font: { size: 10 }, color: '#164e63' } } }
+          scales: { r: { min: 0, max: 100, ticks: { stepSize: 25, display: false }, grid: { color: 'rgba(0,0,0,0.47)' }, angleLines: { color: 'rgba(0,0,0,0.07)' }, pointLabels: { font: { size: 18, weight: 'bold' }, color: '#164e63' } } }
         }
       });
     }
