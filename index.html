@@ -57,6 +57,27 @@
 
     /* Section divider */
     .section-label { letter-spacing: 0.15em; }
+
+    /* Container da barra dividida */
+    .rating-container {
+      display: flex;
+      gap: 4px; /* Espaço entre os 5 blocos */
+      width: 100%;
+      height: 8px;
+    }
+
+    /* Cada um dos 5 blocos */
+    .rating-segment {
+      flex: 1;
+      background-color: #e5e7eb; /* Cinza claro (vazio) */
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Cor quando o bloco estiver preenchido */
+    .rating-segment.filled {
+      background-color: #0891b2; /* cyan-600 */
+    }
   </style>
 </head>
 <body class="bg-gray-50">
@@ -76,22 +97,23 @@
           </button>
           <div class="nav-dropdown absolute left-0 mt-3 w-52 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible transform -translate-y-2 z-50 overflow-hidden">
             <a href="/" class="flex items-center gap-2 px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-700 text-sm transition">
-              <span>⚡</span> Otimização de Processos
+              Otimização de Processos
             </a>
             <a href="#servicos" class="flex items-center gap-2 px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-700 text-sm transition">
-              <span>🔮</span> Análise Preditiva
+              Análise Preditiva
             </a>
             <a href="#projetos" class="flex items-center gap-2 px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-700 text-sm transition">
-              <span>📊</span> Dashboards & BI
+              Dashboards & BI
             </a>
             <a href="#contato" class="flex items-center gap-2 px-4 py-3 text-gray-700 hover:bg-cyan-50 hover:text-cyan-700 text-sm transition">
-              <span>🤖</span> Agentes de IA
+              Agentes de IA
             </a>
           </div>
         </div>
 
         <!-- Nav links -->
         <div class="hidden md:flex items-center gap-6">
+          <a href="services/blog.html" class="text-sm text-gray-600 hover:text-cyan-700 font-medium transition">Blog</a>
           <a href="#servicos" class="text-sm text-gray-600 hover:text-cyan-700 font-medium transition">Serviços</a>
           <a href="#sobre"    class="text-sm text-gray-600 hover:text-cyan-700 font-medium transition">Sobre</a>
           <a href="#projetos" class="text-sm text-gray-600 hover:text-cyan-700 font-medium transition">Projetos</a>
@@ -114,6 +136,7 @@
       <!-- Mobile menu -->
       <div id="mobileMenu" class="hidden md:hidden pt-4 pb-2 border-t border-gray-100 mt-4">
         <div class="flex flex-col gap-1">
+          <a href="services/blog.html" class="px-3 py-2 text-gray-700 hover:bg-cyan-50 hover:text-cyan-700 rounded-lg text-sm transition">Blog</a>
           <a href="#servicos" class="px-3 py-2 text-gray-700 hover:bg-cyan-50 hover:text-cyan-700 rounded-lg text-sm transition">Serviços</a>
           <a href="#sobre"    class="px-3 py-2 text-gray-700 hover:bg-cyan-50 hover:text-cyan-700 rounded-lg text-sm transition">Sobre</a>
           <a href="#projetos" class="px-3 py-2 text-gray-700 hover:bg-cyan-50 hover:text-cyan-700 rounded-lg text-sm transition">Projetos</a>
@@ -127,8 +150,8 @@
 
   <!-- ═══════════════════════ HERO ═══════════════════════ -->
   <section class="relative bg-white overflow-hidden">
-    <div class="hero-bg absolute inset-0 opacity-90" style="background-image: url('assets/img/home.png');"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
+    <div class="hero-bg absolute inset-0 opacity-100" style="background-image: url('assets/img/vangogh_servidor.png');"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80"></div>
 
     <div class="relative max-w-6xl mx-auto px-4 text-center" style="min-height:62vh; display:flex; flex-direction:column; justify-content:center; padding-top:4rem; padding-bottom:4rem;">
 
@@ -157,9 +180,9 @@
            class="btn-ghost inline-flex items-center justify-center gap-2 px-7 py-3 bg-amber-600 border border-white/30 text-white font-semibold rounded-xl text-sm hover:bg-white/20">
           Baixar CV
         </a>
-        <a href="#contato"
+        <a href="services/blog.html"
            class="btn-ghost inline-flex items-center justify-center gap-2 px-7 py-3 bg-amber-600 border border-white/30 text-white font-semibold rounded-xl text-sm hover:bg-white/20">
-          Fale comigo
+          Blog
         </a>
 
       </div>
@@ -185,69 +208,67 @@
   </section>
 
   <!-- ═══════════════════════ SERVIÇOS ═══════════════════════ -->
-  <section id="servicos" class="py-20 bg-white">
+  <section id="servicos" class="py-[40px] bg-white">
     <div class="max-w-6xl mx-auto px-4">
 
       <div class="text-center mb-14">
-        <p class="text-xs text-cyan-600 section-label font-semibold uppercase mb-2">O que ofereço</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-cyan-900 mb-3">Como posso ajudar seu negócio?</h2>
-        <p class="text-gray-500 text-base max-w-xl mx-auto">Soluções em dados aplicadas a problemas reais — do diagnóstico à entrega de resultados mensuráveis.</p>
+        <h2 class="text-3xl md:text-5xl font-bold text-cyan-900 mb-6 leading-tight md:leading-relaxed">Como posso ajudar seu negócio?</h2>
+        <p class="text-gray-500 text-base font-semibold max-w-xl mx-auto">Soluções em dados aplicadas a problemas reais — do diagnóstico à entrega de resultados mensuráveis.</p>
       </div>
 
       <div class="grid md:grid-cols-4 gap-6">
 
-        <!-- Card 1 -->
-        <a href="URL_DO_LINK" target="_blank" rel="noopener noreferrer" class="block cursor-pointer">
-          <div class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400" style="min-height:340px;">
-            <img src="assets/img/card_1.jpeg" alt="Otimização de Processos" class="w-full h-full object-cover absolute inset-0">
-            <div class="service-overlay absolute inset-0 bg-black/55"></div>
-            <div class="relative flex flex-col items-center justify-center h-full p-6 text-center">
-              <span class="text-3xl mb-3">⚡</span>
-              <h3 class="service-title text-xl font-bold text-white drop-shadow mb-3 leading-snug">Otimização de Processos</h3>
-              <p class="service-desc text-sm text-gray-200 leading-relaxed">
-                Saiba Mais
-              </p>
-            </div>
-          </div>
-        </a>
-        <!-- Card 2 -->
-        <div class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer" style="min-height:340px;">
-          <img src="assets/img/card_2.jpg" alt="Análise Preditiva" class="w-full h-full object-cover absolute inset-0">
-          <div class="service-overlay absolute inset-0 bg-black/55"></div>
-          <div class="relative flex flex-col items-center justify-center h-full p-6 text-center">
-            <span class="text-3xl mb-3">🔮</span>
-            <h3 class="service-title text-xl font-bold text-white drop-shadow mb-3 leading-snug">Análise Preditiva</h3>
-            <p class="service-desc text-sm text-gray-200 leading-relaxed">
-              Modelos de machine learning que antecipam tendências e apoiam decisões com base em dados.
-            </p>
-          </div>
+      <!-- Card 1: Otimização de Processos -->
+      <a href="services/otimizacao_processos.html"
+        class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer"
+        style="min-height:420px;">
+        <img src="assets/img/card_1_b.png" alt="Otimização de Processos" class="w-full h-full object-cover absolute inset-0">
+        <div class="service-overlay absolute inset-0 bg-black/45 group-hover:bg-black/95 transition-colors duration-300 ease-in-out"></div>
+        <div class="relative flex flex-col items-center justify-center h-full p-6 text-center">
+          <div class="h-[50px]"></div>
+          <h3 class="service-title text-4xl font-bold text-white drop-shadow mb-3 leading-snug">Otimização de Processos</h3>
+          <span class="service-desc mt-3 text-[24px] text-amber-400 font-semibold">Saiba mais <br>→</span>
         </div>
+      </a>
 
-        <!-- Card 3 -->
-        <div class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer" style="min-height:340px;">
-          <img src="assets/img/card_3.png" alt="Dashboards & BI" class="w-full h-full object-cover absolute inset-0">
-          <div class="service-overlay absolute inset-0 bg-black/55"></div>
-          <div class="relative flex flex-col items-center justify-center h-full p-6 text-center">
-            <span class="text-3xl mb-3">📊</span>
-            <h3 class="service-title text-xl font-bold text-white drop-shadow mb-3 leading-snug">Dashboards & BI</h3>
-            <p class="service-desc text-sm text-gray-200 leading-relaxed">
-              Painéis interativos que traduzem dados complexos em informação clara para gestores.
-            </p>
-          </div>
+      <!-- Card 2: Análise Preditiva -->
+      <a href="services/analise_preditiva.html"
+        class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer"
+        style="min-height:420px;">
+        <img src="assets/img/card_2_b.png" alt="Análise Preditiva" class="w-full h-full object-cover absolute inset-0">
+        <div class="service-overlay absolute inset-0 bg-black/45 group-hover:bg-black/95 transition-colors duration-300 ease-in-out"></div>
+        <div class="relative flex flex-col items-center justify-center h-full p-6 text-center">
+          <div class="h-[50px]"></div>
+          <h3 class="service-title text-4xl font-bold text-white drop-shadow mb-3 leading-snug">Análise Preditiva</h3>
+          <span class="service-desc mt-3 text-[24px] text-amber-400 font-semibold">Saiba mais <br>→</span>
         </div>
+      </a>
 
-        <!-- Card 4 -->
-        <div class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer" style="min-height:340px;">
-          <img src="assets/img/card_4.png" alt="Agentes de IA" class="w-full h-full object-cover absolute inset-0">
-          <div class="service-overlay absolute inset-0 bg-black/55"></div>
-          <div class="relative flex flex-col items-center justify-center h-full p-6 text-center">
-            <span class="text-3xl mb-3">🤖</span>
-            <h3 class="service-title text-xl font-bold text-white drop-shadow mb-3 leading-snug">Agentes de IA</h3>
-            <p class="service-desc text-sm text-gray-200 leading-relaxed">
-              Automações inteligentes com n8n e LLMs que executam tarefas repetitivas sem intervenção humana.
-            </p>
-          </div>
+      <!-- Card 3: Dashboards & BI -->
+      <a href="services/dashboards_bi.html"
+        class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer"
+        style="min-height:420px;">
+        <img src="assets/img/card_3_b.png" alt="Dashboards & BI" class="w-full h-full object-cover absolute inset-0">
+        <div class="service-overlay absolute inset-0 bg-black/45 group-hover:bg-black/95 transition-colors duration-300 ease-in-out"></div>
+        <div class="relative flex flex-col items-center justify-center h-full p-6 text-center">
+          <div class="h-[50px]"></div>
+          <h3 class="service-title text-4xl font-bold text-white drop-shadow mb-3 leading-snug">Dashboards & BI</h3>
+          <span class="service-desc mt-3 text-[24px] text-amber-400 font-semibold">Saiba mais <br>→</span>
         </div>
+      </a>
+
+      <!-- Card 4: Agentes de IA -->
+      <a href="services/agentes_ia.html"
+        class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer"
+        style="min-height:420px;">
+        <img src="assets/img/card_4_b.png" alt="Agentes de IA" class="w-full h-full object-cover absolute inset-0">
+        <div class="service-overlay absolute inset-0 bg-black/55 group-hover:bg-black/95 transition-colors duration-300 ease-in-out"></div>
+        <div class="relative flex flex-col items-center justify-center h-full p-6 text-center">
+          <div class="h-[50px]"></div>
+          <h3 class="service-title text-4xl font-bold text-white drop-shadow mb-3 leading-snug">Agentes de IA</h3>
+          <span class="service-desc mt-3 text-[24px] text-amber-400 font-semibold">Saiba mais <br>→</span>
+        </div>
+      </a>
 
       </div>
     </div>
@@ -307,8 +328,7 @@
 
             <!-- ==================== SOBRE MIM ==================== -->
             <div class="mb-8">
-              <p class="text-xs text-cyan-600 font-semibold uppercase mb-1">Perfil</p>
-              <h2 class="text-xl font-bold text-cyan-900 mb-4">Sobre mim</h2>
+              <h2 class="text-2xl font-bold text-cyan-900 mb-4">| Sobre mim</h2>
               <p class="text-gray-600 text-sm leading-relaxed mb-3">
                 Profissional em transição para Dados com um diferencial raro: <strong class="text-gray-800">15 anos construindo narrativas visuais</strong> no cinema e artes — um olhar treinado para enxergar padrões, comunicar complexidade com clareza e resolver problemas sob pressão real.
               </p>
@@ -324,37 +344,36 @@
             <div class="mb-8 bg-cyan-50 border border-cyan-100 rounded-xl p-5">
               <p class="text-xs text-cyan-600 font-semibold uppercase mb-1">Buscando</p>
               <p class="text-gray-700 text-sm leading-relaxed">
-                Estágio em <strong>Ciência de Dados</strong> ou <strong>Análise de Dados</strong> em empresas de tecnologia e inovação que valorizem automação, análise estratégica e tomada de decisão orientada por dados.
+                Procuro oportunidades na área de dados — <strong>estágios, posições iniciais ou projetos</strong> — onde eu possa transformar dados em insights, automatizar processos e contribuir para decisões mais inteligentes.
               </p>
             </div>
 
             <!-- Formação -->
             <div class="mb-8">
-              <p class="text-xs text-cyan-600 font-semibold uppercase mb-1">Formação</p>
-              <h2 class="text-base font-bold text-cyan-900 mb-4">Acadêmica</h2>
+              <h2 class="text-2xl font-bold text-cyan-900 mb-4">| Formação Acadêmica</h2>
               <div class="space-y-3">
                 <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-xl">
                   <span class="text-xl mt-0.5">🎓</span>
                   <div>
-                    <p class="text-sm font-semibold text-gray-800">Tecnólogo em Ciência de Dados</p>
-                    <p class="text-xs text-gray-500">Universidade Anhanguera · 2024–2026</p>
+                    <p class="text-2xl font-semibold text-gray-800">Tecnólogo em Ciência de Dados</p>
+                    <p class="text-xl text-gray-500">Universidade Anhanguera · 2024–2026</p>
                   </div>
                 </div>
                 <div class="flex items-start gap-3 p-3 bg-gray-50 rounded-xl">
                   <span class="text-xl mt-0.5">🎨</span>
                   <div>
-                    <p class="text-sm font-semibold text-gray-800">Design de Interiores</p>
-                    <p class="text-xs text-gray-500">Universidade FAESA · 2018–2021</p>
+                    <p class="text-2xl font-semibold text-gray-800">Design de Interiores</p>
+                    <p class="text-xl text-gray-500">Universidade FAESA · 2018–2021</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- ==================== SKILLS (integrado) ==================== -->
-            <div class="mb-8">
+            <div class="mb-[90px]">
               <p class="text-xs text-cyan-600 font-semibold uppercase mb-1">Competências</p>
-              <h2 class="text-xl font-bold text-cyan-900 mb-4">Skills & proficiência</h2>
-              <p class="text-gray-500 text-sm mb-6">Selecione uma categoria para explorar</p>
+              <h2 class="text-xl font-bold text-cyan-900 mb-2">Skills & Proficiência</h2>
+              <p class="text-gray-600 font-semibold text-15px mb-[29px]">Selecione uma categoria para explorar</p>
 
               <!-- Tabs -->
               <div class="flex flex-wrap gap-2 justify-start mb-8" id="skillTabs">
@@ -404,61 +423,183 @@
                     <!-- Slide 1 -->
                     <div class="w-full flex-shrink-0 px-3">
                       <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                        <img src="assets/img/certificados/bootcamp_2023.png" alt="Certificado bootcamp" class="w-full h-[450px] object-cover bg-gray-100">
+                        <img src="assets/img/certificados/freecodecamp.JPG" alt="Certificado bootcamp" class="w-full h-[450px] object-cover bg-gray-100">
                         <div class="p-4">
-                          <a href="URL_DO_CERTIFICADO" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
-                            <h3 class="text-sm font-bold text-gray-800 hover:underline">Santander Bootcamp 2023 - Ciência de Dados com Python</h3>
-                            <p class="text-xs text-gray-500">DIO · 2023</p>
+                          <a href="services/certificados.html" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
+                            <h3 class="text-sm font-bold text-gray-800 hover:underline">Data Analysis With Python</h3>
+                            <p class="text-xs text-gray-500">FreeCodeCamp· 2023 - 300 horas</p>
                           </a>
                         </div>
                       </div>
                     </div>
-                    
-
-
                     <!-- Slide 2 -->
-                    <div class="w-full flex-shrink-0 px-2">
+                    <div class="w-full flex-shrink-0 px-3">
                       <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                        <img src="assets/img/certificados/python-data-analytics.jpg" alt="Certificado Python Data Analytics" class="w-full h-40 object-cover bg-gray-100">
+                        <img src="assets/img/certificados/bootcamp_2023.png" alt="Certificado curso em vídeo" class="w-full h-[450px] object-cover bg-gray-100">
                         <div class="p-4">
-                          <h3 class="text-sm font-bold text-gray-800">Python Data Analytics</h3>
-                          <p class="text-xs text-gray-500">DIO · 2024</p>
+                          <a href="services/certificados.html" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
+                            <h3 class="text-sm font-bold text-gray-800 hover:underline">Santander Bootcamp 2023 - Ciência de Dados com Python</h3>
+                            <p class="text-xs text-gray-500">DIO · 2023 - 89 horas</p>
+                          </a>
                         </div>
                       </div>
                     </div>
-
                     <!-- Slide 3 -->
-                    <div class="w-full flex-shrink-0 px-2">
+                    <div class="w-full flex-shrink-0 px-3">
                       <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                        <img src="assets/img/certificados/foundations-bi.jpg" alt="Certificado Foundations of BI" class="w-full h-40 object-cover bg-gray-100">
+                        <img src="assets/img/certificados/foundations_of_business_intelligence.png" alt="Certificado curso em vídeo" class="w-full h-[450px] object-cover bg-gray-100">
                         <div class="p-4">
-                          <h3 class="text-sm font-bold text-gray-800">Foundations of Business Intelligence</h3>
-                          <p class="text-xs text-gray-500">Coursera · 2023</p>
+                          <a href="services/certificados.html" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
+                            <h3 class="text-sm font-bold text-gray-800 hover:underline">Google - Foundations Of Business Intelligence</h3>
+                            <p class="text-xs text-gray-500">Coursera · 2023</p>
+                          </a>
                         </div>
                       </div>
-                    </div>
-
+                    </div> 
                     <!-- Slide 4 -->
-                    <div class="w-full flex-shrink-0 px-2">
+                    <div class="w-full flex-shrink-0 px-3">
                       <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                        <img src="assets/img/certificados/data-analysis-python.jpg" alt="Certificado Data Analysis with Python" class="w-full h-40 object-cover bg-gray-100">
+                        <img src="assets/img/certificados/python_basico_ao_avancado_udemy.png" alt="Certificado curso em vídeo" class="w-full h-[450px] object-cover bg-gray-100">
                         <div class="p-4">
-                          <h3 class="text-sm font-bold text-gray-800">Data Analysis with Python</h3>
-                          <p class="text-xs text-gray-500">FreeCodeCamp · 2023</p>
+                          <a href="services/certificados.html" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
+                            <h3 class="text-sm font-bold text-gray-800 hover:underline">Python 3 - Básico ao Avançado (Com Projetos Reais)</h3>
+                            <p class="text-xs text-gray-500">Udemy · 2023</p>
+                          </a>
                         </div>
                       </div>
-                    </div>
-
+                    </div>  
                     <!-- Slide 5 -->
-                    <div class="w-full flex-shrink-0 px-2">
+                    <div class="w-full flex-shrink-0 px-3">
                       <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                        <img src="assets/img/certificados/python-basico.jpg" alt="Certificado Python Básico" class="w-full h-40 object-cover bg-gray-100">
+                        <img src="assets/img/certificados/santander_n8n.png" alt="Certificado curso em vídeo" class="w-full h-[450px] object-cover bg-gray-100">
                         <div class="p-4">
-                          <h3 class="text-sm font-bold text-gray-800">Python 3 Básico ao Avançado</h3>
-                          <p class="text-xs text-gray-500">Udemy · 2023</p>
+                          <a href="services/certificados.html" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
+                            <h3 class="text-sm font-bold text-gray-800 hover:underline">Santander 2025 - Automações Com n8n</h3>
+                            <p class="text-xs text-gray-500">DIO · 2025</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div> 
+                    <!-- Slide 6 -->
+                    <div class="w-full flex-shrink-0 px-3">
+                      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <img src="assets/img/certificados/python_data_analytics_dio.png" alt="Certificado curso em vídeo" class="w-full h-[450px] object-cover bg-gray-100">
+                        <div class="p-4">
+                          <a href="services/certificados.html" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
+                            <h3 class="text-sm font-bold text-gray-800 hover:underline">Python Data Analytics</h3>
+                            <p class="text-xs text-gray-500">DIO · 2024</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div> 
+                    <!-- Slide 7 -->
+                    <div class="w-full flex-shrink-0 px-3">
+                      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <img src="assets/img/certificados/fudamentos_python_introdutorio_dsa.png" alt="Certificado curso em vídeo" class="w-full h-[450px] object-cover bg-gray-100">
+                        <div class="p-4">
+                          <a href="services/certificados.html" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
+                            <h3 class="text-sm font-bold text-gray-800 hover:underline">Fundamentos de Python - Introdutório</h3>
+                            <p class="text-xs text-gray-500">Data Science Academy · 2024 - 24 horas</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div> 
+                    <!-- Slide 8 -->
+                    <div class="w-full flex-shrink-0 px-3">
+                      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <img src="assets/img/certificados/fudamentos_python_basico_dsa.png" alt="Certificado curso em vídeo" class="w-full h-[450px] object-cover bg-gray-100">
+                        <div class="p-4">
+                          <a href="services/certificados.html" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
+                            <h3 class="text-sm font-bold text-gray-800 hover:underline">Fundamentos de Python - Básico</h3>
+                            <p class="text-xs text-gray-500">Data Science Academy · 2024 - 48 horas</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div> 
+                    <!-- Slide 9 -->
+                    <div class="w-full flex-shrink-0 px-3">
+                      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <img src="assets/img/certificados/fudamentos_python_intermediario_dsa.png" alt="Certificado curso em vídeo" class="w-full h-[450px] object-cover bg-gray-100">
+                        <div class="p-4">
+                          <a href="services/certificados.html" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
+                            <h3 class="text-sm font-bold text-gray-800 hover:underline">Fundamentos de Python - Intermediário</h3>
+                            <p class="text-xs text-gray-500">Data Science Academy · 2024 - 72 horas</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div> 
+                    <!-- Slide 10 -->
+                    <div class="w-full flex-shrink-0 px-3">
+                      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <img src="assets/img/certificados/descobrindo_nuvem_aws.png" alt="Certificado curso em vídeo" class="w-full h-[450px] object-cover bg-gray-100">
+                        <div class="p-4">
+                          <a href="services/certificados.html" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
+                            <h3 class="text-sm font-bold text-gray-800 hover:underline">LocalizaLabs - Descobrindo a Nuvem com AWS</h3>
+                            <p class="text-xs text-gray-500">DIO · 2024 - 48 horas</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div> 
+                    <!-- Slide 11 -->
+                    <div class="w-full flex-shrink-0 px-11">
+                      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <img src="assets/img/certificados/bradesco_administrando_db.png" alt="Certificado curso em vídeo" class="w-full h-[450px] object-cover bg-gray-100">
+                        <div class="p-4">
+                          <a href="services/certificados.html" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
+                            <h3 class="text-sm font-bold text-gray-800 hover:underline">Bradesco - Administrando Banco de Dados</h3>
+                            <p class="text-xs text-gray-500">Fundação Bradesco · 2023 - 15 horas</p>
+                          </a>
                         </div>
                       </div>
                     </div>
+                    <!-- Slide 12 -->
+                    <div class="w-full flex-shrink-0 px-11">
+                      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <img src="assets/img/certificados/bradesco_desenvolvendo_db.png" alt="Certificado curso em vídeo" class="w-full h-[450px] object-cover bg-gray-100">
+                        <div class="p-4">
+                          <a href="services/certificados.html" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
+                            <h3 class="text-sm font-bold text-gray-800 hover:underline">Bradesco - Desenvolvendo um Projeto Completo Python com Estruturas de Dados</h3>
+                            <p class="text-xs text-gray-500">Fundação Bradesco · 2023 - 10 horas</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div> 
+                    <!-- Slide 13 -->
+                    <div class="w-full flex-shrink-0 px-11">
+                      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <img src="assets/img/certificados/bradesco_implementando_db.jpg" alt="Certificado curso em vídeo" class="w-full h-[450px] object-cover bg-gray-100">
+                        <div class="p-4">
+                          <a href="services/certificados.html" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
+                            <h3 class="text-sm font-bold text-gray-800 hover:underline">Bradesco - Implementando Banco de Dados</h3>
+                            <p class="text-xs text-gray-500">Fundação Bradesco · 2023 - 15 horas</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Slide 14 -->
+                    <div class="w-full flex-shrink-0 px-11">
+                      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <img src="assets/img/certificados/bradesco_poo_introducao.png" alt="Certificado curso em vídeo" class="w-full h-[450px] object-cover bg-gray-100">
+                        <div class="p-4">
+                          <a href="services/certificados.html" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
+                            <h3 class="text-sm font-bold text-gray-800 hover:underline">Bradesco - Introdução à Programação Orientada a Objetos</h3>
+                            <p class="text-xs text-gray-500">Fundação Bradesco · 2023 - 5 horas</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Slide 15 -->
+                    <div class="w-full flex-shrink-0 px-11">
+                      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                        <img src="assets/img/certificados/bradesco_desenvolvimento_poo.png" alt="Certificado curso em vídeo" class="w-full h-[450px] object-cover bg-gray-100">
+                        <div class="p-4">
+                          <a href="services/certificados.html" target="_blank" rel="noopener noreferrer" class="block hover:opacity-80 transition-opacity">
+                            <h3 class="text-sm font-bold text-gray-800 hover:underline">Bradesco - Desenvolvimento Orientado a Objetos Utilizando Linguagem Python</h3>
+                            <p class="text-xs text-gray-500">Fundação Bradesco · 2024 - 10 horas</p>
+                          </a>
+                        </div>
+                      </div>
+                    </div>   
 
                   </div>
                 </div>
@@ -654,17 +795,31 @@
     function buildBars(tab) {
       const d = skillData[tab];
       const p = palette[tab];
-      document.getElementById('skillBars').innerHTML = d.details.map((s, i) => `
-        <div class="mb-3">
-          <div class="flex justify-between items-baseline mb-1">
-            <span class="text-xs font-semibold text-gray-700">${s.name}</span>
-            <span class="text-xs font-bold" style="color:${p.main};">${d.values[i]}%</span>
-          </div>
-          <div class="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-            <div class="h-full rounded-full" style="width:${d.values[i]}%; background:${p.main}; transition:width 0.6s ease;"></div>
-          </div>
-          <p class="text-[10px] text-gray-400 mt-1">${s.note}</p>
-        </div>`).join('');
+      const container = document.getElementById('skillBars');
+      
+      if (!container) return;
+
+      container.innerHTML = d.details.map((s, i) => {
+        // Converte o valor para 1-5 (se for 80, vira 4. Se já for 4, mantém 4)
+        const score = d.values[i] > 5 ? Math.round(d.values[i] / 20) : d.values[i];
+
+        // Cria os 5 blocos usando a cor da sua paleta atual (p.main)
+        const blocks = [1, 2, 3, 4, 5].map(num => `
+          <div class="rating-segment" 
+              style="background-color: ${num <= score ? p.main : '#e5e7eb'};">
+          </div>`).join('');
+
+        return `
+          <div class="mb-4">
+            <div class="flex justify-between items-baseline mb-1">
+              <span class="text-15px font-semibold text-gray-700">${s.name}</span>
+            </div>
+            <div class="rating-container">
+              ${blocks}
+            </div>
+            <p class="text-[13px] font-semibold text-gray-400 mt-1">${s.note}</p>
+          </div>`;
+      }).join('');
     }
 
     function buildStack() {

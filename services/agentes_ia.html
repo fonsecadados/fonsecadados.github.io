@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentes de IA | Syã Fonseca</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .fade-up { animation: fadeUp 0.6s ease both; }
+    .fade-up-1 { animation-delay:.1s; } .fade-up-2 { animation-delay:.25s; } .fade-up-3 { animation-delay:.4s; }
+    .project-card { transition: transform .25s ease, box-shadow .25s ease; }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.1); }
+    .tag { display:inline-block; padding:2px 10px; border-radius:999px; font-size:11px; font-weight:500; background:#f0fdf4; color:#059669; border:1px solid #a7f3d0; }
+    /* Pulse animation for "bot" dot */
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+    .pulse { animation: pulse 2s ease infinite; }
+    /* Typing animation */
+    @keyframes typing { from{width:0} to{width:100%} }
+    .type-anim { overflow:hidden; white-space:nowrap; animation: typing 2.5s steps(30) infinite alternate; }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <div id="nav-placeholder"></div>
+
+  <!-- HERO -->
+  <header class="relative bg-white overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.07]" style="background-image:url('../assets/img/card_4.png'); background-size:cover; background-position:center;"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-emerald-950/95 to-teal-800/90"></div>
+    <div class="relative max-w-6xl mx-auto px-4 py-20 md:py-28">
+      <div class="max-w-3xl">
+        <p class="fade-up fade-up-1 text-xs text-emerald-300 font-semibold uppercase tracking-widest mb-3">Serviço</p>
+        <h1 class="fade-up fade-up-2 text-4xl md:text-6xl font-bold text-white leading-tight mb-4">
+          Agentes<br><span class="text-amber-300">de IA</span>
+        </h1>
+        <p class="fade-up fade-up-3 text-lg text-emerald-100 leading-relaxed max-w-xl mb-8">
+          Automações inteligentes que trabalham enquanto você descansa. Fluxos com n8n e LLMs que executam tarefas complexas sem intervenção humana.
+        </p>
+        <div class="fade-up fade-up-3 flex flex-wrap gap-3">
+          <a href="https://wa.me/5527995239355" target="_blank"
+             class="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-white font-semibold rounded-xl transition text-sm">
+            Quero meu agente de IA
+          </a>
+          <a href="#projetos" class="px-6 py-3 bg-white/10 border border-white/30 hover:bg-white/20 text-white font-semibold rounded-xl transition text-sm">
+            Ver projetos
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="relative bg-white/5 border-t border-white/10">
+      <div class="max-w-6xl mx-auto px-4 py-6 grid grid-cols-3 gap-4 text-center">
+        <div><p class="text-2xl font-bold text-amber-300">24/7</p><p class="text-xs text-emerald-200 mt-0.5">operação sem interrupção</p></div>
+        <div><p class="text-2xl font-bold text-amber-300">0</p><p class="text-xs text-emerald-200 mt-0.5">cliques manuais por execução</p></div>
+        <div><p class="text-2xl font-bold text-amber-300">−80%</p><p class="text-xs text-emerald-200 mt-0.5">tempo em tarefas repetitivas</p></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROBLEMA -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="text-xs text-emerald-600 font-semibold uppercase tracking-widest mb-2">O problema</p>
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-5">Tarefas repetitivas consomem o tempo que deveria ir para estratégia</h2>
+          <div class="space-y-4">
+            <div class="flex gap-3 items-start">
+              <span class="shrink-0 w-8 h-8 rounded-lg bg-red-100 flex items-center justify-center text-red-500 text-sm">⚠️</span>
+              <div><p class="text-sm font-semibold text-gray-800">Processos que poderiam ser automatizados</p><p class="text-xs text-gray-500">Respostas padronizadas, triagem de e-mails, coleta de dados — tarefas que não precisam de humano.</p></div>
+            </div>
+            <div class="flex gap-3 items-start">
+              <span class="shrink-0 w-8 h-8 rounded-lg bg-red-100 flex items-center justify-center text-red-500 text-sm">⚠️</span>
+              <div><p class="text-sm font-semibold text-gray-800">Ferramentas que não se integram</p><p class="text-xs text-gray-500">CRM, e-mail, planilhas, APIs — ilhas de informação que exigem cópia manual entre sistemas.</p></div>
+            </div>
+            <div class="flex gap-3 items-start">
+              <span class="shrink-0 w-8 h-8 rounded-lg bg-red-100 flex items-center justify-center text-red-500 text-sm">⚠️</span>
+              <div><p class="text-sm font-semibold text-gray-800">Escala limitada pelo time humano</p><p class="text-xs text-gray-500">Seu negócio cresce, mas o time não consegue acompanhar sem contratar mais pessoas.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual de "agente" -->
+        <div class="bg-gray-950 rounded-2xl p-6 shadow-xl border border-gray-800 font-mono text-xs">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+            <span class="text-gray-500 ml-2 text-xs">agente_ia.n8n</span>
+          </div>
+          <div class="space-y-3">
+            <div class="flex gap-2"><span class="text-green-400 shrink-0">✓</span><span class="text-gray-300">Novo lead recebido via formulário</span></div>
+            <div class="flex gap-2"><span class="text-green-400 shrink-0">✓</span><span class="text-gray-300">Qualificação automática por IA</span></div>
+            <div class="flex gap-2"><span class="text-green-400 shrink-0">✓</span><span class="text-gray-300">E-mail personalizado enviado</span></div>
+            <div class="flex gap-2"><span class="text-green-400 shrink-0">✓</span><span class="text-gray-300">CRM atualizado com score</span></div>
+            <div class="flex gap-2 items-center">
+              <span class="pulse text-emerald-400 shrink-0">●</span>
+              <span class="type-anim text-emerald-300">Aguardando próximo gatilho...</span>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-800 text-gray-500">
+            <span class="text-green-400">→</span> 847 execuções hoje · 0 erros · uptime 99.9%
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METODOLOGIA -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <p class="text-xs text-emerald-600 font-semibold uppercase tracking-widest mb-2">Como funciona</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Do processo manual ao agente autônomo</h2>
+      </div>
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-emerald-900 text-white flex items-center justify-center font-bold mx-auto mb-4 text-lg">1</div>
+          <h3 class="text-sm font-bold text-gray-800 mb-2">Mapeamento</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">Identificação dos processos mais repetitivos e de maior impacto para automação.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-emerald-700 text-white flex items-center justify-center font-bold mx-auto mb-4 text-lg">2</div>
+          <h3 class="text-sm font-bold text-gray-800 mb-2">Design do fluxo</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">Mapeamento dos gatilhos, ações e integrações necessárias para o agente funcionar.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold mx-auto mb-4 text-lg">3</div>
+          <h3 class="text-sm font-bold text-gray-800 mb-2">Construção</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">Desenvolvimento no n8n com integração de LLMs, APIs e fontes de dados.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold mx-auto mb-4 text-lg">4</div>
+          <h3 class="text-sm font-bold text-gray-800 mb-2">Monitoramento</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">Logs, alertas e dashboard de execução para garantir que o agente funcione sem falhas.</p>
+        </div>
+      </div>
+      <div class="mt-12 bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-wrap gap-3 justify-center">
+        <span class="tag">⚙️ n8n</span>
+        <span class="tag">🤖 LLMs</span>
+        <span class="tag">🐍 Python</span>
+        <span class="tag">🔗 APIs REST</span>
+        <span class="tag">📧 E-mail</span>
+        <span class="tag">🗄️ SQL</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos" class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <p class="text-xs text-emerald-600 font-semibold uppercase tracking-widest mb-2">Cases</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Projetos realizados</h2>
+      </div>
+
+      <div class="space-y-6">
+        <div class="project-card bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+          <div class="md:flex">
+            <div class="md:w-1/3 bg-gradient-to-br from-emerald-900 to-teal-700 p-6 flex flex-col justify-center">
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                <span class="px-2 py-0.5 bg-white/20 text-white text-xs rounded-full">n8n</span>
+                <span class="px-2 py-0.5 bg-white/20 text-white text-xs rounded-full">LLM</span>
+                <span class="px-2 py-0.5 bg-white/20 text-white text-xs rounded-full">DIO</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Agente de Automação com n8n</h3>
+              <p class="text-emerald-200 text-xs">Fluxo completo de automação de tarefas com integração de IA generativa.</p>
+            </div>
+            <div class="md:w-2/3 p-6 grid md:grid-cols-3 gap-4">
+              <div class="bg-blue-50 rounded-xl p-4 border border-blue-100">
+                <p class="text-xs font-bold text-blue-700 uppercase tracking-wide mb-1">Problema</p>
+                <p class="text-xs text-gray-700">Processo manual de triagem e resposta de mensagens recebidas consumindo tempo de profissionais qualificados.</p>
+              </div>
+              <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                <p class="text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Solução</p>
+                <p class="text-xs text-gray-700">Agente n8n com LLM que classifica, prioriza e responde automaticamente com base no contexto da mensagem.</p>
+              </div>
+              <div class="bg-green-50 rounded-xl p-4 border border-green-100">
+                <p class="text-xs font-bold text-green-700 uppercase tracking-wide mb-1">Resultado</p>
+                <p class="text-xs text-gray-700"><strong>−80% do tempo</strong> gasto em triagem manual. Resposta imediata 24/7 sem custo adicional de equipe.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+          <div class="md:flex">
+            <div class="md:w-1/3 bg-gradient-to-br from-teal-900 to-cyan-700 p-6 flex flex-col justify-center">
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                <span class="px-2 py-0.5 bg-white/20 text-white text-xs rounded-full">n8n</span>
+                <span class="px-2 py-0.5 bg-white/20 text-white text-xs rounded-full">Python</span>
+                <span class="px-2 py-0.5 bg-white/20 text-white text-xs rounded-full">API</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Pipeline de Coleta e Alerta de Dados</h3>
+              <p class="text-teal-200 text-xs">Agente que monitora fontes de dados e dispara alertas automáticos quando anomalias são detectadas.</p>
+            </div>
+            <div class="md:w-2/3 p-6 grid md:grid-cols-3 gap-4">
+              <div class="bg-blue-50 rounded-xl p-4 border border-blue-100">
+                <p class="text-xs font-bold text-blue-700 uppercase tracking-wide mb-1">Problema</p>
+                <p class="text-xs text-gray-700">Dados críticos mudando sem que ninguém percebesse — anomalias identificadas horas ou dias depois do evento.</p>
+              </div>
+              <div class="bg-gray-50 rounded-xl p-4 border border-gray-200">
+                <p class="text-xs font-bold text-gray-600 uppercase tracking-wide mb-1">Solução</p>
+                <p class="text-xs text-gray-700">Agente que consulta APIs periodicamente, detecta desvios estatísticos e envia alertas instantâneos via e-mail ou Telegram.</p>
+              </div>
+              <div class="bg-green-50 rounded-xl p-4 border border-green-100">
+                <p class="text-xs font-bold text-green-700 uppercase tracking-wide mb-1">Resultado</p>
+                <p class="text-xs text-gray-700">Tempo de detecção de anomalias de <strong>dias para segundos</strong>. Zero ocorrências passando despercebidas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="https://github.com/fonsecadados" target="_blank"
+           class="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition text-sm font-medium">
+          Ver todos os projetos no GitHub →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div id="cta-placeholder"></div>
+  <div id="footer-placeholder"></div>
+
+  <script src="../components.js"></script>
+  <script>injectComponents('Agentes de IA');</script>
+</body>
+</html>

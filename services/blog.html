@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Syã Fonseca — Ciência de Dados</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; }
+
+    /* ── Featured card ── */
+    .featured-card { transition: box-shadow .3s ease; }
+    .featured-card:hover { box-shadow: 0 24px 60px rgba(0,0,0,.13); }
+    .featured-img { transition: transform .4s ease; }
+    .featured-card:hover .featured-img { transform: scale(1.03); }
+
+    /* ── Post card ── */
+    .post-card { transition: transform .22s ease, box-shadow .22s ease; }
+    .post-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,.1); }
+    .post-card:hover .card-title { color: #0e7490; }
+    .card-title { transition: color .2s; }
+
+    /* ── Category pills ── */
+    .cat-pill { transition: background .2s, color .2s, border-color .2s; cursor: pointer; user-select: none; }
+    .cat-pill.active { background: #0e7490; color: #fff; border-color: #0e7490; }
+
+    /* ── Tag chip ── */
+    .tag-chip { font-size: 10px; font-weight: 600; letter-spacing: .04em; }
+
+    /* ── Reading time ── */
+    .read-time { font-size: 11px; }
+
+    /* ── Fade in ── */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+    .fade-up { animation: fadeUp .55s ease both; }
+    .d1 { animation-delay:.08s; } .d2 { animation-delay:.18s; } .d3 { animation-delay:.28s; }
+
+    /* ── Sidebar ── */
+    .sidebar-card { transition: box-shadow .2s; }
+    .sidebar-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.07); }
+
+    /* Newsletter form */
+    .nl-input:focus { outline: none; border-color: #0e7490; }
+
+    /* No-results */
+    #no-results { display: none; }
+    #no-results.show { display: block; }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="flex items-center gap-2 text-sm text-cyan-700 font-semibold hover:text-cyan-900 transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Portfólio
+        </a>
+        <span class="text-gray-200">|</span>
+        <span class="text-sm font-bold text-cyan-950">Blog</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="certificados.html" class="hidden md:block text-sm text-gray-500 hover:text-cyan-700 transition">Certificados</a>
+        <a href="index.html#projetos" class="hidden md:block text-sm text-gray-500 hover:text-cyan-700 transition">Projetos</a>
+        <a href="https://wa.me/5527995239355" target="_blank"
+           class="text-sm px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium">WhatsApp</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <header class="bg-gradient-to-br from-cyan-950 via-cyan-900 to-slate-800 py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="fade-up d1 text-xs text-cyan-300 font-semibold uppercase tracking-widest mb-3">Escrito por Syã Fonseca</p>
+      <h1 class="fade-up d2 text-4xl md:text-5xl font-bold text-white mb-4" style="font-family:'Lora',serif;">
+        Blog de Ciência de Dados
+      </h1>
+      <p class="fade-up d3 text-cyan-200 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+        Análises, tutoriais e reflexões sobre dados, machine learning e o mercado de tecnologia — escritos por quem está vivendo essa jornada.
+      </p>
+
+      <!-- Search bar -->
+      <div class="fade-up d3 mt-8 max-w-md mx-auto relative">
+        <input id="search-input" type="text" placeholder="Buscar artigos..."
+          class="w-full px-5 py-3 pr-12 rounded-xl text-sm bg-white/10 border border-white/20 text-white placeholder-cyan-300/70 focus:outline-none focus:border-white/50 transition">
+        <svg class="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2 text-cyan-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ CONTEÚDO ═══ -->
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <div class="flex flex-col lg:flex-row gap-10">
+
+      <!-- ── Coluna principal ── -->
+      <main class="flex-1 min-w-0">
+
+        <!-- Filtros de categoria -->
+        <div class="flex flex-wrap gap-2 mb-8">
+          <button class="cat-pill active px-4 py-1.5 rounded-full text-xs font-semibold border border-cyan-700 text-cyan-700" data-cat="all">
+            Todos
+          </button>
+          <button class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold border border-gray-200 text-gray-500 hover:border-cyan-400 hover:text-cyan-700" data-cat="analise">
+            Análise de Dados
+          </button>
+          <button class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold border border-gray-200 text-gray-500 hover:border-cyan-400 hover:text-cyan-700" data-cat="ml">
+            Machine Learning
+          </button>
+          <button class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold border border-gray-200 text-gray-500 hover:border-cyan-400 hover:text-cyan-700" data-cat="carreira">
+            Carreira
+          </button>
+          <button class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold border border-gray-200 text-gray-500 hover:border-cyan-400 hover:text-cyan-700" data-cat="tutorial">
+            Tutoriais
+          </button>
+          <button class="cat-pill px-4 py-1.5 rounded-full text-xs font-semibold border border-gray-200 text-gray-500 hover:border-cyan-400 hover:text-cyan-700" data-cat="mercado">
+            Mercado
+          </button>
+        </div>
+
+        <!-- ── POST DESTAQUE ── -->
+        <a href="posts/analise-cinema-brasileiro.html"
+           class="featured-card block bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden mb-8"
+           data-cats="analise" data-title="indústria cinematográfica brasileira ancine agentes econômicos dados geoespaciais">
+          <div class="md:flex">
+            <div class="md:w-2/5 overflow-hidden bg-gray-100" style="min-height:220px;">
+              <div class="featured-img w-full h-full bg-gradient-to-br from-cyan-900 to-cyan-700 flex items-center justify-center" style="min-height:220px;">
+                <span class="text-6xl">🎬</span>
+              </div>
+            </div>
+            <div class="md:w-3/5 p-7 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="tag-chip px-2.5 py-1 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-100">Análise de Dados</span>
+                  <span class="tag-chip px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-100">⭐ Destaque</span>
+                </div>
+                <h2 class="text-xl font-bold text-gray-900 mb-2 leading-snug" style="font-family:'Lora',serif;">
+                  Indústria Cinematográfica Brasileira: Desafios e Oportunidades
+                </h2>
+                <p class="text-sm text-gray-500 leading-relaxed line-clamp-3">
+                  Análise exploratória dos dados públicos da ANCINE para mapear a concentração de agentes econômicos, identificar disparidades regionais e entender o impacto das políticas de fomento no audiovisual brasileiro.
+                </p>
+              </div>
+              <div class="flex items-center justify-between mt-5 pt-4 border-t border-gray-100">
+                <div class="flex items-center gap-3">
+                  <span class="text-xs text-gray-400">15 jan 2025</span>
+                  <span class="text-gray-200">·</span>
+                  <span class="read-time text-gray-400">⏱ 12 min de leitura</span>
+                </div>
+                <span class="text-xs text-cyan-600 font-semibold">Ler artigo →</span>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <!-- ── GRID DE POSTS ── -->
+        <div class="grid sm:grid-cols-2 gap-6" id="posts-grid">
+
+          <!-- Post: Pandas para iniciantes -->
+          <article class="post-card bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
+                   data-cats="tutorial analise" data-title="pandas python iniciantes análise dados tutorial">
+            <div class="h-36 bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center">
+              <span class="text-5xl">🐼</span>
+            </div>
+            <div class="p-5">
+              <div class="flex gap-2 mb-3">
+                <span class="tag-chip px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-100">Tutorial</span>
+                <span class="tag-chip px-2 py-0.5 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-100">Python</span>
+              </div>
+              <h3 class="card-title text-base font-bold text-gray-800 leading-snug mb-2" style="font-family:'Lora',serif;">
+                Pandas na prática: os 10 métodos que você vai usar todo dia
+              </h3>
+              <p class="text-xs text-gray-500 leading-relaxed line-clamp-2 mb-4">
+                Um guia direto ao ponto para quem está começando com análise de dados em Python. Sem enrolação — só o que realmente importa no dia a dia.
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-gray-400">Em breve</span>
+                <span class="read-time text-gray-400">⏱ 8 min</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post: Transição de carreira -->
+          <article class="post-card bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
+                   data-cats="carreira" data-title="transição carreira dados ciência dados mercado trabalho junior">
+            <div class="h-36 bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
+              <span class="text-5xl">🔄</span>
+            </div>
+            <div class="p-5">
+              <div class="flex gap-2 mb-3">
+                <span class="tag-chip px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-100">Carreira</span>
+              </div>
+              <h3 class="card-title text-base font-bold text-gray-800 leading-snug mb-2" style="font-family:'Lora',serif;">
+                15 anos no cinema, agora em dados: o que aprendi na transição
+              </h3>
+              <p class="text-xs text-gray-500 leading-relaxed line-clamp-2 mb-4">
+                Como um background em cinema e artes visuais pode ser um diferencial inesperado no mercado de dados — e o que ninguém te conta sobre transição de carreira.
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-gray-400">Em breve</span>
+                <span class="read-time text-gray-400">⏱ 10 min</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post: EDA -->
+          <article class="post-card bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
+                   data-cats="tutorial analise" data-title="eda análise exploratória dados exploratória tutorial passo a passo">
+            <div class="h-36 bg-gradient-to-br from-emerald-600 to-teal-700 flex items-center justify-center">
+              <span class="text-5xl">🔍</span>
+            </div>
+            <div class="p-5">
+              <div class="flex gap-2 mb-3">
+                <span class="tag-chip px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">Tutorial</span>
+                <span class="tag-chip px-2 py-0.5 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-100">EDA</span>
+              </div>
+              <h3 class="card-title text-base font-bold text-gray-800 leading-snug mb-2" style="font-family:'Lora',serif;">
+                EDA do zero: como explorar qualquer dataset em 7 passos
+              </h3>
+              <p class="text-xs text-gray-500 leading-relaxed line-clamp-2 mb-4">
+                O processo que uso em todo projeto novo — desde entender o shape até identificar correlações que ninguém estava esperando.
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-gray-400">Em breve</span>
+                <span class="read-time text-gray-400">⏱ 9 min</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post: Mercado de dados -->
+          <article class="post-card bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
+                   data-cats="mercado carreira" data-title="mercado dados 2025 tendências vagas salários brasil">
+            <div class="h-36 bg-gradient-to-br from-violet-600 to-purple-700 flex items-center justify-center">
+              <span class="text-5xl">📈</span>
+            </div>
+            <div class="p-5">
+              <div class="flex gap-2 mb-3">
+                <span class="tag-chip px-2 py-0.5 rounded-full bg-violet-50 text-violet-700 border border-violet-100">Mercado</span>
+                <span class="tag-chip px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-100">2025</span>
+              </div>
+              <h3 class="card-title text-base font-bold text-gray-800 leading-snug mb-2" style="font-family:'Lora',serif;">
+                O mercado de dados no Brasil em 2025: o que mudou e o que ainda vai mudar
+              </h3>
+              <p class="text-xs text-gray-500 leading-relaxed line-clamp-2 mb-4">
+                Uma leitura honesta sobre vagas, salários, habilidades valorizadas e o impacto da IA generativa na carreira de quem trabalha com dados.
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-gray-400">Em breve</span>
+                <span class="read-time text-gray-400">⏱ 7 min</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post: Visualização -->
+          <article class="post-card bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
+                   data-cats="tutorial analise" data-title="visualização dados matplotlib plotly seaborn python gráficos">
+            <div class="h-36 bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center">
+              <span class="text-5xl">📊</span>
+            </div>
+            <div class="p-5">
+              <div class="flex gap-2 mb-3">
+                <span class="tag-chip px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-100">Visualização</span>
+                <span class="tag-chip px-2 py-0.5 rounded-full bg-cyan-50 text-cyan-700 border border-cyan-100">Python</span>
+              </div>
+              <h3 class="card-title text-base font-bold text-gray-800 leading-snug mb-2" style="font-family:'Lora',serif;">
+                Visualização de dados: quando usar cada tipo de gráfico
+              </h3>
+              <p class="text-xs text-gray-500 leading-relaxed line-clamp-2 mb-4">
+                O erro mais comum de quem começa: escolher o gráfico errado para a história certa. Um guia visual e prático para acertar sempre.
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-gray-400">Em breve</span>
+                <span class="read-time text-gray-400">⏱ 6 min</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Post: n8n -->
+          <article class="post-card bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
+                   data-cats="tutorial ml" data-title="n8n automação agentes ia llm fluxos tutorial">
+            <div class="h-36 bg-gradient-to-br from-green-600 to-emerald-800 flex items-center justify-center">
+              <span class="text-5xl">⚙️</span>
+            </div>
+            <div class="p-5">
+              <div class="flex gap-2 mb-3">
+                <span class="tag-chip px-2 py-0.5 rounded-full bg-green-50 text-green-700 border border-green-100">Automação</span>
+                <span class="tag-chip px-2 py-0.5 rounded-full bg-green-50 text-green-700 border border-green-100">n8n</span>
+              </div>
+              <h3 class="card-title text-base font-bold text-gray-800 leading-snug mb-2" style="font-family:'Lora',serif;">
+                n8n para cientistas de dados: automatize o que ninguém quer fazer
+              </h3>
+              <p class="text-xs text-gray-500 leading-relaxed line-clamp-2 mb-4">
+                Como usar o n8n para automatizar coleta de dados, relatórios e até criar agentes com LLMs — sem precisar escrever uma linha de código de servidor.
+              </p>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-gray-400">Em breve</span>
+                <span class="read-time text-gray-400">⏱ 11 min</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- No results -->
+        <div id="no-results" class="text-center py-16">
+          <p class="text-4xl mb-3">🔍</p>
+          <p class="text-gray-500 text-sm">Nenhum artigo encontrado.</p>
+          <button onclick="resetBlogFilters()" class="mt-4 text-xs text-cyan-600 hover:text-cyan-800 font-medium">Limpar filtros</button>
+        </div>
+
+      </main>
+
+      <!-- ── Sidebar ── -->
+      <aside class="lg:w-72 shrink-0">
+        <div class="sticky top-24 space-y-6">
+
+          <!-- Sobre o autor -->
+          <div class="sidebar-card bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 rounded-full overflow-hidden border-2 border-cyan-200 shrink-0">
+                <img src="assets/img/foto_perfil_2.png" alt="Syã Fonseca" class="w-full h-full object-cover"
+                     onerror="this.parentElement.innerHTML='<div class=\'w-full h-full bg-cyan-100 flex items-center justify-center text-xl\'>👤</div>'">
+              </div>
+              <div>
+                <p class="text-sm font-bold text-gray-800">Syã Fonseca</p>
+                <p class="text-xs text-cyan-600">Cientista de Dados</p>
+              </div>
+            </div>
+            <p class="text-xs text-gray-500 leading-relaxed mb-4">
+              15 anos em cinema e artes, agora em dados. Escrevo sobre análise, ML e a jornada de quem está fazendo essa transição.
+            </p>
+            <div class="flex gap-2">
+              <a href="https://github.com/fonsecadados" target="_blank"
+                 class="flex-1 text-center py-1.5 bg-gray-800 text-white text-xs rounded-lg hover:bg-gray-900 transition font-medium">GitHub</a>
+              <a href="https://linkedin.com/in/syafonseca" target="_blank"
+                 class="flex-1 text-center py-1.5 bg-blue-700 text-white text-xs rounded-lg hover:bg-blue-800 transition font-medium">LinkedIn</a>
+            </div>
+          </div>
+
+          <!-- Categorias -->
+          <div class="sidebar-card bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+            <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Categorias</p>
+            <div class="space-y-2">
+              <div class="flex items-center justify-between py-1.5 border-b border-gray-50 cursor-pointer hover:text-cyan-700 transition"
+                   onclick="filterByCategory('analise')">
+                <span class="text-sm text-gray-700">📊 Análise de Dados</span>
+                <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">3</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-gray-50 cursor-pointer hover:text-cyan-700 transition"
+                   onclick="filterByCategory('tutorial')">
+                <span class="text-sm text-gray-700">🛠️ Tutoriais</span>
+                <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">4</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-gray-50 cursor-pointer hover:text-cyan-700 transition"
+                   onclick="filterByCategory('carreira')">
+                <span class="text-sm text-gray-700">🚀 Carreira</span>
+                <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">2</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 border-b border-gray-50 cursor-pointer hover:text-cyan-700 transition"
+                   onclick="filterByCategory('ml')">
+                <span class="text-sm text-gray-700">🤖 Machine Learning</span>
+                <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">2</span>
+              </div>
+              <div class="flex items-center justify-between py-1.5 cursor-pointer hover:text-cyan-700 transition"
+                   onclick="filterByCategory('mercado')">
+                <span class="text-sm text-gray-700">📈 Mercado</span>
+                <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">1</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="bg-gradient-to-br from-cyan-900 to-cyan-700 rounded-2xl p-5 text-white">
+            <p class="text-xs font-semibold uppercase tracking-widest text-cyan-300 mb-2">Newsletter</p>
+            <p class="text-sm font-bold mb-2">Novos artigos direto no seu e-mail</p>
+            <p class="text-xs text-cyan-200 mb-4 leading-relaxed">Sem spam. Só conteúdo útil sobre dados, carreira e projetos.</p>
+            <a href="https://linkedin.com/in/syafonseca" target="_blank"
+               class="block text-center py-2.5 bg-white text-cyan-900 rounded-xl text-xs font-bold hover:bg-cyan-50 transition">
+              Seguir no LinkedIn →
+            </a>
+          </div>
+
+          <!-- Leitura recomendada -->
+          <div class="sidebar-card bg-white rounded-2xl border border-gray-100 shadow-sm p-5">
+            <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Leitura recomendada</p>
+            <a href="posts/analise-cinema-brasileiro.html"
+               class="flex gap-3 items-start group hover:text-cyan-700 transition">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-cyan-900 to-cyan-700 flex items-center justify-center shrink-0 text-xl">🎬</div>
+              <div>
+                <p class="text-xs font-semibold text-gray-800 leading-snug group-hover:text-cyan-700 transition line-clamp-2">
+                  Indústria Cinematográfica Brasileira: Desafios e Oportunidades
+                </p>
+                <p class="text-xs text-gray-400 mt-1">12 min · Jan 2025</p>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="border-t border-gray-200 py-8 bg-white mt-8">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3 text-gray-500 text-sm">
+      <p>© 2025 Syã Fonseca. Todos os direitos reservados.</p>
+      <div class="flex gap-5">
+        <a href="index.html" class="hover:text-gray-800 transition">← Portfólio</a>
+        <a href="certificados.html" class="hover:text-gray-800 transition">Certificados</a>
+        <a href="https://github.com/fonsecadados" target="_blank" class="hover:text-gray-800 transition">GitHub</a>
+        <a href="https://linkedin.com/in/syafonseca" target="_blank" class="hover:text-gray-800 transition">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let activeCategory = 'all';
+    let searchQuery = '';
+
+    function applyBlogFilters() {
+      const cards = document.querySelectorAll('#posts-grid article, a.featured-card');
+      let visible = 0;
+      cards.forEach(card => {
+        const cats  = card.dataset.cats || '';
+        const title = (card.dataset.title || '').toLowerCase();
+        const matchCat    = activeCategory === 'all' || cats.includes(activeCategory);
+        const matchSearch = searchQuery === '' || title.includes(searchQuery);
+        const show = matchCat && matchSearch;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      document.getElementById('no-results').classList.toggle('show', visible === 0);
+    }
+
+    // Category pills
+    document.querySelectorAll('.cat-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        activeCategory = pill.dataset.cat;
+        applyBlogFilters();
+      });
+    });
+
+    // Sidebar category links
+    function filterByCategory(cat) {
+      activeCategory = cat;
+      document.querySelectorAll('.cat-pill').forEach(p => {
+        p.classList.toggle('active', p.dataset.cat === cat);
+      });
+      applyBlogFilters();
+      document.querySelector('main').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Search
+    document.getElementById('search-input').addEventListener('input', e => {
+      searchQuery = e.target.value.toLowerCase().trim();
+      applyBlogFilters();
+    });
+
+    function resetBlogFilters() {
+      activeCategory = 'all';
+      searchQuery = '';
+      document.getElementById('search-input').value = '';
+      document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+      document.querySelector('[data-cat="all"]').classList.add('active');
+      applyBlogFilters();
+    }
+  </script>
+</body>
+</html>
