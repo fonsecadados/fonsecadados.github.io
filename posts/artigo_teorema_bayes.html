@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Título do Artigo] | Syã Fonseca</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── Base ─────────────────────────────────────── */
+    * { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; }
+
+    /* ─── Reading progress bar ─────────────────────── */
+    #reading-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #0e7490, #f59e0b);
+      z-index: 100;
+      transition: width .1s linear;
+    }
+
+    /* ─── Scrollbar no resume (se usar) ─────────────── */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* ─── TOC links ─────────────────────────────────── */
+    .toc-link {
+      display: block;
+      padding: .35rem 0 .35rem .75rem;
+      font-size: .8rem;
+      color: #64748b;
+      border-left: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+      text-decoration: none;
+    }
+    .toc-link:hover,
+    .toc-link.active { color: #0e7490; border-left-color: #0e7490; }
+
+    /* ─── Prose body ─────────────────────────────────── */
+    .post-body p {
+      color: #374151;
+      font-size: .95rem;
+      line-height: 1.9;
+      margin-bottom: 1.25rem;
+    }
+    .post-body h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #164e63;
+      border-left: 4px solid #0e7490;
+      padding-left: .75rem;
+      margin: 2.5rem 0 1rem;
+    }
+    .post-body h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1e3a5f;
+      margin: 2rem 0 .75rem;
+    }
+    .post-body ul,
+    .post-body ol {
+      margin: 0 0 1.25rem 1.25rem;
+    }
+    .post-body li {
+      font-size: .95rem;
+      color: #374151;
+      line-height: 1.75;
+      margin-bottom: .4rem;
+    }
+    .post-body strong { color: #111827; font-weight: 600; }
+    .post-body em     { color: #6b7280; }
+    .post-body a      { color: #0e7490; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .post-body a:hover{ color: #164e63; }
+    .post-body hr     { border: none; border-top: 1px dashed #e2e8f0; margin: 2.5rem 0; }
+
+    /* ─── Callout blocks ─────────────────────────────── */
+    .callout-blue   { background:#eff6ff; border-left:4px solid #3b82f6; border-radius:0 10px 10px 0; padding:1rem 1.25rem; margin:1.5rem 0; }
+    .callout-amber  { background:#fefce8; border-left:4px solid #f59e0b; border-radius:0 10px 10px 0; padding:1rem 1.25rem; margin:1.5rem 0; }
+    .callout-green  { background:#f0fdf4; border-left:4px solid #16a34a; border-radius:0 10px 10px 0; padding:1rem 1.25rem; margin:1.5rem 0; }
+    .callout-gray   { background:#f8fafc; border-left:4px solid #64748b; border-radius:0 10px 10px 0; padding:1rem 1.25rem; margin:1.5rem 0; }
+
+    /* ─── Blockquote ─────────────────────────────────── */
+    .post-body blockquote {
+      border-left: 4px solid #0e7490;
+      margin: 1.5rem 0;
+      padding: .875rem 1.25rem;
+      background: #f0fdfa;
+      border-radius: 0 10px 10px 0;
+      font-style: italic;
+      color: #164e63;
+      font-size: 1rem;
+    }
+
+    /* ─── Code blocks ─────────────────────────────────── */
+    .post-body pre {
+      background: #0f172a;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border: 1px solid #1e293b;
+    }
+    .post-body code {
+      font-family: 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+      font-size: .82rem;
+      color: #e2e8f0;
+      line-height: 1.7;
+    }
+    .post-body p code,
+    .post-body li code {
+      background: #f1f5f9;
+      color: #0e7490;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: .82rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* ─── Image caption ─────────────────────────────── */
+    .img-caption {
+      font-size: .78rem;
+      color: #9ca3af;
+      text-align: center;
+      margin-top: .5rem;
+      font-style: italic;
+    }
+
+    /* ─── Related card hover ─────────────────────────── */
+    .related-card { transition: transform .22s ease, box-shadow .22s ease; }
+    .related-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,.09); }
+
+    /* ─── Back link ──────────────────────────────────── */
+    .back-link { transition: gap .2s; }
+    .back-link:hover { gap: .75rem; }
+
+    /* ─── Tag chip ───────────────────────────────────── */
+    .chip {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 500;
+      background: rgba(14,116,144,.08);
+      color: #0e7490;
+      border: 1px solid #a5f3fc;
+    }
+    .chip-amber {
+      background: rgba(245,158,11,.08);
+      color: #b45309;
+      border-color: #fde68a;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50">
+
+  <!-- ── Reading progress ────────────────────────── -->
+  <div id="reading-progress" style="width:0%"></div>
+
+  <!-- ══════════════════════════════════════════════
+       NAV  (idêntico ao padrão do site)
+  ══════════════════════════════════════════════ -->
+  <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+
+      <!-- Esquerda: voltar + breadcrumb -->
+      <div class="flex items-center gap-4">
+        <a href="../services/blog.html"
+           class="back-link flex items-center gap-2 text-sm text-cyan-700 font-semibold hover:text-cyan-900 transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Blog
+        </a>
+        <span class="text-gray-200">|</span>
+        <span class="text-sm font-bold text-cyan-950 hidden sm:block truncate max-w-xs">
+          [Título curto do artigo]
+        </span>
+      </div>
+
+      <!-- Direita: links + CTA -->
+      <div class="flex items-center gap-4">
+        <a href="../index.html"
+           class="hidden md:block text-sm text-gray-500 hover:text-cyan-700 font-medium transition">Portfólio</a>
+        <a href="../index.html#projetos"
+           class="hidden md:block text-sm text-gray-500 hover:text-cyan-700 font-medium transition">Projetos</a>
+        <a href="https://wa.me/5527995239355" target="_blank"
+           class="text-sm px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-medium">
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════════
+       HERO DO ARTIGO
+  ══════════════════════════════════════════════ -->
+  <header class="bg-gradient-to-br from-cyan-950 via-cyan-900 to-slate-800 py-14 md:py-20">
+    <div class="max-w-4xl mx-auto px-4">
+
+      <!-- Tags / categoria -->
+      <div class="flex flex-wrap gap-2 mb-5">
+        <span class="chip">Análise de Dados</span>
+        <span class="chip">Python</span>
+        <span class="chip">Tutorial</span>
+        <span class="chip chip-amber">⭐ Destaque</span>
+      </div>
+
+      <!-- Título principal -->
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
+        Título principal do artigo que pode ocupar<br class="hidden md:block"> duas linhas confortavelmente
+      </h1>
+
+      <!-- Subtítulo / descrição -->
+      <p class="text-cyan-200 text-base md:text-lg leading-relaxed max-w-2xl mb-8">
+        Uma descrição clara e objetiva do que o leitor vai encontrar neste artigo. Deve ser direta e capturar o valor central do conteúdo em duas linhas.
+      </p>
+
+      <!-- Meta: autor + data + tempo -->
+      <div class="flex flex-wrap items-center gap-5 text-sm text-cyan-300">
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+          </svg>
+          Syã Fonseca
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          15 de janeiro de 2025
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          ~10 min de leitura
+        </span>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════
+       MÉTRICAS DE DESTAQUE  (opcional — use quando
+       o artigo tiver números impactantes)
+  ══════════════════════════════════════════════ -->
+  <div class="bg-white border-b border-gray-100 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 py-8">
+      <p class="text-xs text-cyan-600 font-semibold uppercase tracking-widest mb-5 text-center">
+        Principais números
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="text-center p-4 bg-blue-50 rounded-xl border border-blue-100">
+          <p class="text-2xl md:text-3xl font-bold text-blue-700">60%</p>
+          <p class="text-xs text-gray-600 mt-1 leading-tight">descrição curta do número</p>
+        </div>
+        <div class="text-center p-4 bg-amber-50 rounded-xl border border-amber-100">
+          <p class="text-2xl md:text-3xl font-bold text-amber-700">7.196</p>
+          <p class="text-xs text-gray-600 mt-1 leading-tight">registros analisados</p>
+        </div>
+        <div class="text-center p-4 bg-red-50 rounded-xl border border-red-100">
+          <p class="text-2xl md:text-3xl font-bold text-red-600">−381%</p>
+          <p class="text-xs text-gray-600 mt-1 leading-tight">variação no período</p>
+        </div>
+        <div class="text-center p-4 bg-green-50 rounded-xl border border-green-100">
+          <p class="text-2xl md:text-3xl font-bold text-green-700">+85%</p>
+          <p class="text-xs text-gray-600 mt-1 leading-tight">acurácia do modelo</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════
+       LAYOUT PRINCIPAL: ARTIGO + SIDEBAR
+  ══════════════════════════════════════════════ -->
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <div class="flex flex-col lg:flex-row gap-10">
+
+
+      <!-- ── SIDEBAR: TOC + autor ──────────────────── -->
+      <aside class="hidden lg:block lg:w-56 shrink-0">
+        <div class="sticky top-24 space-y-6">
+
+          <!-- Table of contents -->
+          <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-5">
+            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">
+              Neste artigo
+            </p>
+            <nav>
+              <a class="toc-link" href="#secao-1">Seção 1</a>
+              <a class="toc-link" href="#secao-2">Seção 2</a>
+              <a class="toc-link" href="#secao-3">Seção 3</a>
+              <a class="toc-link" href="#codigo">Código de exemplo</a>
+              <a class="toc-link" href="#resultados">Resultados</a>
+              <a class="toc-link" href="#conclusao">Conclusão</a>
+            </nav>
+
+            <hr class="my-4 border-gray-100">
+
+            <!-- Link para repositório (quando aplicável) -->
+            <a href="https://github.com/fonsecadados" target="_blank"
+               class="flex items-center gap-2 text-xs text-gray-500 hover:text-gray-800 transition font-medium">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+              Ver repositório
+            </a>
+          </div>
+
+          <!-- Mini card do autor -->
+          <div class="bg-white rounded-xl border border-gray-100 shadow-sm p-5">
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-cyan-200 shrink-0">
+                <img src="../assets/img/foto_perfil_2.png" alt="Syã Fonseca"
+                     class="w-full h-full object-cover"
+                     onerror="this.parentElement.innerHTML='<div class=\'w-full h-full bg-cyan-100 flex items-center justify-center text-lg\'>👤</div>'">
+              </div>
+              <div>
+                <p class="text-xs font-bold text-gray-800">Syã Fonseca</p>
+                <p class="text-xs text-cyan-600">Cientista de Dados</p>
+              </div>
+            </div>
+            <div class="flex gap-2 mt-3">
+              <a href="https://linkedin.com/in/syafonseca" target="_blank"
+                 class="flex-1 text-center py-1.5 bg-blue-700 text-white text-xs rounded-lg hover:bg-blue-800 transition font-medium">
+                LinkedIn
+              </a>
+              <a href="https://github.com/fonsecadados" target="_blank"
+                 class="flex-1 text-center py-1.5 bg-gray-800 text-white text-xs rounded-lg hover:bg-gray-900 transition font-medium">
+                GitHub
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+
+      <!-- ── ARTIGO PRINCIPAL ───────────────────────── -->
+      <article class="flex-1 min-w-0 post-body">
+
+
+        <!-- ─ SEÇÃO 1 ─────────────────────────────── -->
+        <section id="secao-1">
+          <h2>Título da Seção 1</h2>
+
+          <p>
+            Parágrafo de abertura da seção. Escreva de forma direta, com frases curtas e objetivas.
+            O espaçamento generoso entre parágrafos (line-height: 1.9) garante leitura confortável
+            tanto no desktop quanto no mobile.
+          </p>
+
+          <p>
+            Segundo parágrafo. Use <strong>negrito para termos-chave</strong> e <em>itálico para
+            ênfases ou termos técnicos</em>. Links ficam em <a href="#">ciano com sublinhado suave</a>.
+          </p>
+
+          <!-- Callout azul: insight / destaque informativo -->
+          <div class="callout-blue">
+            <p class="text-sm font-semibold text-blue-800 mb-1">💡 Insight importante</p>
+            <p class="text-sm text-blue-900 m-0">
+              Use este callout para destacar informações-chave, definições ou insights que merecem
+              atenção especial do leitor. Mantenha o texto conciso.
+            </p>
+          </div>
+
+          <p>
+            Continuação do texto após o callout. O fluxo narrativo retoma naturalmente.
+          </p>
+        </section>
+
+        <hr>
+
+
+        <!-- ─ SEÇÃO 2 ─────────────────────────────── -->
+        <section id="secao-2">
+          <h2>Título da Seção 2</h2>
+          <p>
+            Introdução desta seção com contexto necessário para o que vem a seguir.
+          </p>
+
+          <h3>Subseção 2.1</h3>
+          <p>
+            Texto explicativo da subseção. Use h3 para subdivisões dentro de uma mesma seção.
+            Evite mais de dois níveis de hierarquia (h2 + h3) para manter a leitura limpa.
+          </p>
+
+          <!-- Lista simples -->
+          <ul>
+            <li><strong>Item 1:</strong> descrição clara e objetiva do item.</li>
+            <li><strong>Item 2:</strong> cada item deve agregar informação distinta.</li>
+            <li><strong>Item 3:</strong> evite listas muito longas — prefira 3 a 6 itens.</li>
+            <li><strong>Item 4:</strong> se precisar de mais, considere subdividir em subseções.</li>
+          </ul>
+
+          <!-- Callout amarelo: atenção / aviso -->
+          <div class="callout-amber">
+            <p class="text-sm font-semibold text-amber-800 mb-1">⚠️ Atenção</p>
+            <p class="text-sm text-amber-900 m-0">
+              Use este callout para alertas, ressalvas ou pontos que o leitor deve ter cuidado
+              antes de aplicar o que está aprendendo.
+            </p>
+          </div>
+
+          <h3>Subseção 2.2</h3>
+          <p>
+            Continuação com lista numerada quando a ordem importa:
+          </p>
+          <ol>
+            <li>Primeiro passo — sempre o mais importante.</li>
+            <li>Segundo passo — depende do primeiro.</li>
+            <li>Terceiro passo — valide o resultado aqui.</li>
+          </ol>
+
+        </section>
+
+        <hr>
+
+
+        <!-- ─ SEÇÃO 3: Imagem com legenda ──────────── -->
+        <section id="secao-3">
+          <h2>Análise visual dos dados</h2>
+          <p>
+            Parágrafo introdutório antes da imagem, contextualizando o que o leitor vai ver.
+          </p>
+
+          <!-- Imagem do artigo com legenda -->
+          <figure class="my-6">
+            <div class="bg-gray-100 rounded-2xl overflow-hidden border border-gray-200">
+              <img
+                src="../assets/img/[nome-da-imagem].png"
+                alt="Descrição acessível da imagem"
+                class="w-full object-cover"
+                onerror="this.parentElement.innerHTML='<div class=\'flex items-center justify-center h-48 text-4xl text-gray-300\'>📊</div>'">
+            </div>
+            <figcaption class="img-caption mt-2">
+              Legenda descritiva da imagem — fonte, metodologia ou contexto adicional.
+            </figcaption>
+          </figure>
+
+          <p>
+            Parágrafo que comenta os dados ou resultados apresentados na imagem acima.
+            Sempre conecte a imagem ao texto para que ela não fique isolada.
+          </p>
+
+          <!-- Blockquote / citação de destaque -->
+          <blockquote>
+            "Use blockquote para frases de impacto, citações de especialistas ou afirmações
+            centrais que merecem destaque visual dentro do texto."
+          </blockquote>
+
+        </section>
+
+        <hr>
+
+
+        <!-- ─ SEÇÃO: Código ───────────────────────── -->
+        <section id="codigo">
+          <h2>Código de exemplo</h2>
+          <p>
+            Quando o artigo for técnico, mostre o código de forma clara. Use <code>inline code</code>
+            para mencionar funções ou variáveis no meio do texto.
+          </p>
+
+          <!-- Bloco de código completo -->
+          <pre><code># Exemplo de código Python
+import pandas as pd
+import numpy as np
+
+# Carregando os dados
+df = pd.read_csv('dados.csv')
+
+# Limpeza básica
+df = df.dropna()
+df.columns = df.columns.str.lower().str.strip()
+
+# Análise exploratória
+print(df.describe())
+print(f"Shape: {df.shape}")
+print(f"Nulos: {df.isnull().sum().sum()}")</code></pre>
+
+          <p>
+            Explicação do código acima: o bloco faz X, Y e Z. Explique sempre o porquê
+            das decisões tomadas, não apenas o que o código faz.
+          </p>
+        </section>
+
+        <hr>
+
+
+        <!-- ─ SEÇÃO: Resultados ───────────────────── -->
+        <section id="resultados">
+          <h2>Resultados encontrados</h2>
+          <p>
+            Descreva os resultados de forma clara, conectando-os ao problema original.
+          </p>
+
+          <!-- Mini grid de resultados (mesmo padrão dos projetos) -->
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-4 my-6">
+            <div class="bg-blue-50 border border-blue-100 rounded-xl p-4 text-center">
+              <p class="text-2xl font-bold text-blue-700">95%</p>
+              <p class="text-xs text-gray-600 mt-1 leading-tight">acurácia do modelo</p>
+            </div>
+            <div class="bg-amber-50 border border-amber-100 rounded-xl p-4 text-center">
+              <p class="text-2xl font-bold text-amber-700">−40%</p>
+              <p class="text-xs text-gray-600 mt-1 leading-tight">tempo de processamento</p>
+            </div>
+            <div class="bg-green-50 border border-green-100 rounded-xl p-4 text-center col-span-2 md:col-span-1">
+              <p class="text-2xl font-bold text-green-700">+3×</p>
+              <p class="text-xs text-gray-600 mt-1 leading-tight">ganho de eficiência</p>
+            </div>
+          </div>
+
+          <!-- Callout verde: resultado / conclusão positiva -->
+          <div class="callout-green">
+            <p class="text-sm font-semibold text-green-800 mb-1">✅ Resultado alcançado</p>
+            <p class="text-sm text-green-900 m-0">
+              Use este callout para destacar o impacto final, a entrega do projeto ou
+              a conclusão principal que o leitor deve levar consigo.
+            </p>
+          </div>
+
+          <!-- Callout cinza: nota / informação complementar -->
+          <div class="callout-gray">
+            <p class="text-sm font-semibold text-gray-700 mb-1">📝 Nota técnica</p>
+            <p class="text-sm text-gray-700 m-0">
+              Use este callout para notas de rodapé, contexto adicional ou informações
+              técnicas que não caben no fluxo principal do texto.
+            </p>
+          </div>
+
+        </section>
+
+        <hr>
+
+
+        <!-- ─ CONCLUSÃO ───────────────────────────── -->
+        <section id="conclusao">
+          <h2>Conclusão</h2>
+          <p>
+            Parágrafo de fechamento que retoma a tese do artigo e conecta os principais
+            pontos abordados. Seja direto — o leitor já leu o artigo inteiro.
+          </p>
+          <p>
+            Finalize com um convite à ação: comentar, compartilhar, aplicar o conhecimento
+            ou entrar em contato. Mantenha tom pessoal e acessível.
+          </p>
+        </section>
+
+
+        <!-- ─ CTA INLINE: GitHub ──────────────────── -->
+        <div class="mt-10 bg-gradient-to-r from-cyan-900 to-cyan-700 rounded-2xl p-7 text-white text-center">
+          <p class="text-sm font-semibold text-cyan-300 mb-1">📂 Acesse o projeto completo</p>
+          <h3 class="text-xl font-bold mb-2">Código e dados abertos no GitHub</h3>
+          <p class="text-cyan-200 text-sm mb-5">
+            Todo o pipeline, notebooks e documentação estão disponíveis publicamente.
+          </p>
+          <div class="flex flex-wrap justify-center gap-3">
+            <a href="https://github.com/fonsecadados" target="_blank"
+               class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-800 rounded-xl text-sm font-semibold hover:bg-gray-100 transition">
+              Ver no GitHub
+            </a>
+            <a href="../services/blog.html"
+               class="inline-flex items-center gap-2 px-5 py-2.5 bg-white/15 border border-white/30 text-white rounded-xl text-sm font-semibold hover:bg-white/25 transition">
+              ← Voltar ao blog
+            </a>
+          </div>
+        </div>
+
+      </article>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════
+       ARTIGOS RELACIONADOS
+  ══════════════════════════════════════════════ -->
+  <section class="py-16 bg-white border-t border-gray-100">
+    <div class="max-w-4xl mx-auto px-4">
+
+      <div class="text-center mb-10">
+        <p class="text-xs text-cyan-600 font-semibold uppercase tracking-widest mb-2">Continue lendo</p>
+        <h2 class="text-2xl font-bold text-gray-900">Artigos relacionados</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+
+        <!-- Card relacionado 1 -->
+        <a href="[link-do-artigo].html"
+           class="related-card block bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+          <div class="h-28 bg-gradient-to-br from-cyan-900 to-cyan-700 flex items-center justify-center">
+            <span class="text-4xl">🎬</span>
+          </div>
+          <div class="p-4">
+            <div class="flex gap-2 mb-2">
+              <span class="chip text-xs">Análise</span>
+            </div>
+            <h3 class="text-sm font-bold text-gray-800 leading-snug mb-1 hover:text-cyan-700 transition">
+              Título do artigo relacionado 1
+            </h3>
+            <p class="text-xs text-gray-400">Jan 2025 · 12 min</p>
+          </div>
+        </a>
+
+        <!-- Card relacionado 2 -->
+        <a href="[link-do-artigo].html"
+           class="related-card block bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+          <div class="h-28 bg-gradient-to-br from-violet-700 to-indigo-800 flex items-center justify-center">
+            <span class="text-4xl">🤖</span>
+          </div>
+          <div class="p-4">
+            <div class="flex gap-2 mb-2">
+              <span class="chip text-xs">Machine Learning</span>
+            </div>
+            <h3 class="text-sm font-bold text-gray-800 leading-snug mb-1 hover:text-cyan-700 transition">
+              Título do artigo relacionado 2
+            </h3>
+            <p class="text-xs text-gray-400">Fev 2025 · 8 min</p>
+          </div>
+        </a>
+
+        <!-- Card relacionado 3 -->
+        <a href="[link-do-artigo].html"
+           class="related-card block bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+          <div class="h-28 bg-gradient-to-br from-amber-600 to-orange-700 flex items-center justify-center">
+            <span class="text-4xl">📊</span>
+          </div>
+          <div class="p-4">
+            <div class="flex gap-2 mb-2">
+              <span class="chip text-xs">Tutorial</span>
+            </div>
+            <h3 class="text-sm font-bold text-gray-800 leading-snug mb-1 hover:text-cyan-700 transition">
+              Título do artigo relacionado 3
+            </h3>
+            <p class="text-xs text-gray-400">Mar 2025 · 10 min</p>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Botão voltar ao blog -->
+      <div class="text-center mt-8">
+        <a href="../services/blog.html"
+           class="inline-flex items-center gap-2 px-6 py-3 bg-cyan-900 text-white rounded-xl text-sm font-semibold hover:bg-cyan-800 transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Ver todos os artigos
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       CTA DE CONTATO  (idêntico ao padrão do site)
+  ══════════════════════════════════════════════ -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <div class="bg-gradient-to-br from-blue-700 via-blue-600 to-indigo-700 rounded-3xl p-10 md:p-14 text-white shadow-2xl">
+        <p class="text-xs text-blue-200 font-semibold uppercase tracking-widest mb-3">Vamos conversar?</p>
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 leading-snug">
+          Pronto para transformar seus dados<br class="hidden md:block"> em resultados concretos?
+        </h2>
+        <p class="text-blue-100 text-base mb-10 max-w-lg mx-auto leading-relaxed">
+          Agende uma conversa e descubra como a Ciência de Dados pode impulsionar o seu negócio.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="https://wa.me/5527995239355" target="_blank"
+             class="inline-flex items-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-400 text-white font-semibold rounded-xl transition text-sm">
+            WhatsApp
+          </a>
+          <a href="https://www.linkedin.com/in/syafonseca/" target="_blank"
+             class="inline-flex items-center gap-2 px-6 py-3 bg-white/15 hover:bg-white/25 border border-white/30 text-white font-semibold rounded-xl transition text-sm">
+            LinkedIn
+          </a>
+          <a href="mailto:syafonseca@gmail.com"
+             class="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-800 font-semibold rounded-xl hover:bg-gray-100 transition text-sm">
+            ✉️ E-mail
+          </a>
+        </div>
+        <p class="text-blue-200 text-xs mt-8">Resposta em até 24 horas úteis</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       FOOTER  (idêntico ao padrão do site)
+  ══════════════════════════════════════════════ -->
+  <footer class="border-t border-gray-200 py-8 bg-white">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3 text-gray-500 text-sm">
+      <p>© 2025 Syã Fonseca. Todos os direitos reservados.</p>
+      <div class="flex gap-5">
+        <a href="../index.html"            class="hover:text-gray-800 transition">← Portfólio</a>
+        <a href="../services/blog.html"    class="hover:text-gray-800 transition">Blog</a>
+        <a href="https://github.com/fonsecadados" target="_blank" class="hover:text-gray-800 transition">GitHub</a>
+        <a href="https://www.linkedin.com/in/syafonseca/" target="_blank" class="hover:text-gray-800 transition">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════════ -->
+  <script>
+    /* ─ Reading progress bar ─ */
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const pct = doc.scrollTop / (doc.scrollHeight - doc.clientHeight) * 100;
+      document.getElementById('reading-progress').style.width = pct + '%';
+    });
+
+    /* ─ TOC active link on scroll ─ */
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const tocLinks  = document.querySelectorAll('.toc-link');
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('active'));
+          const active = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0% -60% 0%' });
+
+    sections.forEach(s => io.observe(s));
+
+    /* ─ Mobile menu (se quiser adicionar) ─ */
+    const mobileBtn  = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+      mobileMenu.querySelectorAll('a').forEach(a =>
+        a.addEventListener('click', () => mobileMenu.classList.add('hidden'))
+      );
+    }
+  </script>
+
+</body>
+</html>
