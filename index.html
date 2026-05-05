@@ -53,6 +53,7 @@
     /* CTA button */
     .btn-primary { transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease; }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(180,83,9,0.4); }
+    .btn-primary-main:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(23, 159, 238, 0.4); }
     .btn-ghost { transition: background 0.2s ease, color 0.2s ease; }
 
     /* Section divider */
@@ -151,12 +152,12 @@
 
   <!-- ═══════════════════════ HERO ═══════════════════════ -->
   <section class="relative bg-white overflow-hidden">
-    <div class="hero-bg absolute inset-0 opacity-100" style="background-image: url('assets/img/vangogh_servidor.png');"></div>
+    <div class="hero-bg absolute inset-0 opacity-100" style="background-image: url('assets/img/home.jpg'); background-position: 1% 190% ;"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80"></div>
 
     <div class="relative max-w-6xl mx-auto px-4 text-center" style="min-height:62vh; display:flex; flex-direction:column; justify-content:space-between; padding-top:10rem; padding-bottom:4rem;">
 
-      <p class="fade-up fade-up-1 text-xs md:text-sm text-cyan-300 section-label font-semibold uppercase mb-3">
+      <p class="fade-up fade-up-1 text-l md:text-l text-cyan-300 section-label font-semibold uppercase mb-3">
         Seja Bem-Vindo(a) ao Portifólio & Blog de 
       </p>
 
@@ -164,25 +165,25 @@
         Syã Fonseca
       </h1>
 
-      <p class="fade-up fade-up-3 text-xl md:text-2xl font-light text-gray-200 mb-10">
+      <p class="fade-up fade-up-3 text-3xl md:text-2xl font-semibold text-gray-200 mb-10">
         Ciência de Dados  |  Automação Inteligente | Soluções em IA
       </p>
 
 
       <div class="fade-up fade-up-4 flex flex-col sm:flex-row gap-9 justify-center">
         <a href="#projetos"
-           class="btn-primary inline-flex items-center justify-center gap-2 px-7 py-3 bg-cyan-600 text-white font-semibold rounded-xl text-sm">
+           class="btn-primary-main inline-flex items-center justify-center gap-2 px-7 py-3 bg-cyan-600 text-white font-semibold rounded-xl text-l">
           Ver projetos
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
           </svg>
         </a>
         <a href="#contato"
-           class="btn-ghost inline-flex items-center justify-center gap-2 px-7 py-3 bg-amber-600 border border-white/30 text-white font-semibold rounded-xl text-sm hover:bg-white/20">
+           class="btn-primary inline-flex items-center justify-center gap-2 px-7 py-3 bg-amber-400 border border-amber-400 text-cyan-950 font-semibold rounded-xl text-l hover:bg-amber-400">
           Baixar CV
         </a>
         <a href="services/blog.html"
-           class="btn-ghost inline-flex items-center justify-center gap-2 px-7 py-3 bg-amber-600 border border-white/30 text-white font-semibold rounded-xl text-sm hover:bg-white/20">
+           class="btn-primary inline-flex items-center justify-center gap-2 px-7 py-3 bg-amber-400 border border-amber-400 text-cyan-950 font-semibold rounded-xl text-l hover:bg-amber-400">
           Blog
         </a>
 
@@ -220,73 +221,166 @@
       <div class="grid md:grid-cols-5 gap-6">
 
       <!-- Card 1: Aplicações Web & Sistemas -->
-      <a href="services/aplicacoes_web_sistemas_baixa.html"
-        class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer"
-        style="min-height:420px;">
-        <img src="assets/img/aplicacoes_web_sistemas.png" alt="Aplicações Web & Sistemas" class="w-full h-full object-cover absolute inset-0">
+      <a href="services/aplicacoes_web_sistemas.html"
+        class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer h-[420px]">
+
+        <img 
+          src="assets/img/aplicacoes_web_sistemas_baixa.jpg" 
+          alt="Aplicações Web & Sistemas" 
+          class="w-full h-full object-cover absolute inset-0"
+        >
+
         <div class="service-overlay absolute inset-0 bg-black/45 group-hover:bg-black/95 transition-colors duration-300 ease-in-out"></div>
+
         <div class="relative flex flex-col items-center justify-center h-full p-6 text-center">
           <div class="h-[50px]"></div>
-          <h3 class="service-title text-3xl font-bold text-white drop-shadow mb-3 leading-snug">Aplicações Web & Sistemas</h3>
-          <span class="service-desc mt-3 text-[24px] text-amber-400 font-semibold">Saiba mais <br>→</span>
+          <h3 class="service-title text-2xl font-bold text-white drop-shadow mb-3 leading-snug">
+            Aplicações Web & Sistemas
+          </h3>
+          <span class="service-desc mt-3 text-[24px] text-amber-400 font-semibold">
+            Saiba mais <br>→
+          </span>
         </div>
       </a>
 
-      <!-- Card 2: Análise Preditiva -->
-      <a href="services/analise_preditiva.html"
-        class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer"
-        style="min-height:420px;">
-        <img src="assets/img/card_2_b.png" alt="Análise Preditiva" class="w-full h-full object-cover absolute inset-0">
+      <!-- Card 2: Engenharia de Dados -->
+      <a href="services/engenharia_de_dados.html"
+        class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer h-[420px]">
+
+        <img 
+          src="assets/img/engenharia_de_dados.jpg" 
+          alt="Engenharia de Dados" 
+          class="w-full h-full object-cover absolute inset-0"
+        >
+
         <div class="service-overlay absolute inset-0 bg-black/45 group-hover:bg-black/95 transition-colors duration-300 ease-in-out"></div>
+
         <div class="relative flex flex-col items-center justify-center h-full p-6 text-center">
           <div class="h-[50px]"></div>
-          <h3 class="service-title text-3xl font-bold text-white drop-shadow mb-3 leading-snug">Análise Preditiva</h3>
-          <span class="service-desc mt-3 text-[24px] text-amber-400 font-semibold">Saiba mais <br>→</span>
+          <h3 class="service-title text-2xl font-bold text-white drop-shadow mb-3 leading-snug">
+            Engenharia de Dados
+          </h3>
+          <span class="service-desc mt-3 text-[24px] text-amber-400 font-semibold">
+            Saiba mais <br>→
+          </span>
         </div>
       </a>
 
-      <!-- Card 3: Dashboards & BI -->
-      <a href="services/dashboards_bi.html"
-        class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer"
-        style="min-height:420px;">
-        <img src="assets/img/card_3_b.png" alt="Dashboards & BI" class="w-full h-full object-cover absolute inset-0">
+      <!-- Card 3: Análise & Inteligência de Negócio -->
+      <a href="services/analise_inteligencia_e_negocio.html"
+        class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer h-[420px]">
+
+        <img 
+          src="assets/img/analise_inteligencia_e_negocio.jpg" 
+          alt="Análise & Inteligência de Negócio" 
+          class="w-full h-full object-cover absolute inset-0"
+        >
+
         <div class="service-overlay absolute inset-0 bg-black/45 group-hover:bg-black/95 transition-colors duration-300 ease-in-out"></div>
+
         <div class="relative flex flex-col items-center justify-center h-full p-6 text-center">
           <div class="h-[50px]"></div>
-          <h3 class="service-title text-3xl font-bold text-white drop-shadow mb-3 leading-snug">Dashboards & BI</h3>
-          <span class="service-desc mt-3 text-[24px] text-amber-400 font-semibold">Saiba mais <br>→</span>
+          <h3 class="service-title text-2xl font-bold text-white drop-shadow mb-3 leading-snug">
+            Análise & Inteligência de Negócio
+          </h3>
+          <span class="service-desc mt-3 text-[24px] text-amber-400 font-semibold">
+            Saiba mais <br>→
+          </span>
         </div>
       </a>
 
-      <!-- Card 4: Agentes de IA -->
-      <a href="services/agentes_ia.html"
-        class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer"
-        style="min-height:420px;">
-        <img src="assets/img/card_4_b.png" alt="Agentes de IA" class="w-full h-full object-cover absolute inset-0">
-        <div class="service-overlay absolute inset-0 bg-black/55 group-hover:bg-black/95 transition-colors duration-300 ease-in-out"></div>
+      <!-- Card 4: Agentes de IA & Automação -->
+      <a href="services/agentes_ia_automacao.html"
+        class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer h-[420px]">
+
+        <img 
+          src="assets/img/agentes_ia_automacao.jpg" 
+          alt="Agentes de IA & Automação" 
+          class="w-full h-full object-cover absolute inset-0"
+        >
+
+        <div class="service-overlay absolute inset-0 bg-black/45 group-hover:bg-black/95 transition-colors duration-300 ease-in-out"></div>
+
         <div class="relative flex flex-col items-center justify-center h-full p-6 text-center">
           <div class="h-[50px]"></div>
-          <h3 class="service-title text-3xl font-bold text-white drop-shadow mb-3 leading-snug">Agentes de IA</h3>
-          <span class="service-desc mt-3 text-[24px] text-amber-400 font-semibold">Saiba mais <br>→</span>
+          <h3 class="service-title text-2xl font-bold text-white drop-shadow mb-3 leading-snug">
+            Agentes de IA & Automação
+          </h3>
+          <span class="service-desc mt-3 text-[24px] text-amber-400 font-semibold">
+            Saiba mais <br>→
+          </span>
         </div>
       </a>
 
-      <!-- Card 5: Inteligência Política -->
-      <a href="services/inteligencia_politica.html"
-        class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer"
-        style="min-height:420px;">
-        <img src="assets/img/card_5_b.png" alt="Inteligência Política" class="w-full h-full object-cover absolute inset-0">
-        <div class="service-overlay absolute inset-0 bg-black/55 group-hover:bg-black/95 transition-colors duration-300 ease-in-out"></div>
+      <!-- Card 5: Soluções em IA Personalizadas -->
+      <a href="services/solucoes_ia_personalizadas.html"
+        class="service-card group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-400 cursor-pointer h-[420px]">
+
+        <img 
+          src="assets/img/solucoes_ia_personalizadas.jpg" 
+          alt="Soluções em IA Personalizadas" 
+          class="w-full h-full object-cover absolute inset-0 object-[20%_center]"
+        >
+
+        <div class="service-overlay absolute inset-0 bg-black/45 group-hover:bg-black/95 transition-colors duration-300 ease-in-out"></div>
+
         <div class="relative flex flex-col items-center justify-center h-full p-6 text-center">
           <div class="h-[50px]"></div>
-          <h3 class="service-title text-3xl font-bold text-white drop-shadow mb-3 leading-snug">Inteligência Política</h3>
-          <span class="service-desc mt-3 text-[24px] text-amber-400 font-semibold">Saiba mais <br>→</span>
+          <h3 class="service-title text-2xl font-bold text-white drop-shadow mb-3 leading-snug">
+            Soluções em IA Personalizadas
+          </h3>
+          <span class="service-desc mt-3 text-[24px] text-amber-400 font-semibold">
+            Saiba mais <br>→
+          </span>
         </div>
       </a>
+      </div>
+  </section>
 
+  <!--=========================BLOG BANNER==========================-->
+  <section class="relative bg-white overflow-hidden">
+    <div class="hero-bg absolute inset-0 opacity-100" style="background-image: url('assets/img/blog.jpg'); background-position: center 1%;"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80"></div>
+
+    <div class="relative max-w-6xl mx-auto px-4 text-center" style="min-height:10vh; display:flex; flex-direction:column; justify-content:space-between; padding-top:6rem; padding-bottom:6rem;">
+
+      <p class="fade-up fade-up-1 text-l md:text-l text-amber-400 section-label font-semibold uppercase mb-3">
+        Conteúdo & Conhecimento
+      </p>
+
+      <h2 class="fade-up fade-up-2 text-4xl md:text-6xl font-bold text-white mb-5 leading-tight">
+        Blog & Artigos
+      </h2>
+
+      <p class="fade-up fade-up-3 text-lg md:text-xl font-light text-gray-200 mb-8 max-w-3xl mx-auto">
+        Dicas, tendências e insights sobre <span class="text-cyan-300 font-medium">Ciência de Dados</span>, 
+        <span class="text-cyan-300 font-medium">Automação Inteligente</span> e 
+        <span class="text-cyan-300 font-medium">Inteligência Artificial</span> aplicados a negócios.
+      </p>
+
+      <div class="fade-up fade-up-4 flex flex-col sm:flex-row gap-5 justify-center">
+        <a href="/blog"
+          class="btn-primary inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-400 hover:bg-amber-400 text-cyan-950 font-semibold rounded-xl text-base transition-all duration-300 shadow-lg hover:shadow-xl">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+          Ler artigos
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </a>
+
+        <a href="#newsletter"
+          class="btn-secondary inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-white/30 hover:border-amber-500 text-white font-semibold rounded-xl text-base transition-all duration-300">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          Inscreva-se
+        </a>
       </div>
     </div>
   </section>
+
 
       <!-- ═══════════════════════ SOBRE + SKILLS ═══════════════════════ -->
   <section id="sobre" class="py-20 bg-gray-50">
@@ -344,23 +438,23 @@
             <div class="mb-8">
               <h2 class="text-2xl font-bold text-cyan-900 mb-4">| Sobre mim</h2>
 
-              <p class="text-gray-600 text-sm leading-relaxed mb-3">
+              <p class="text-gray-600 text-l leading-relaxed mb-3">
                 Cientista de Dados focado em transformar dados em decisões estratégicas. Atuo com análise exploratória, modelagem e construção de soluções orientadas a negócio, sempre com foco em clareza, eficiência e impacto real.
               </p>
 
-              <p class="text-gray-600 text-sm leading-relaxed mb-3">
+              <p class="text-gray-600 text-l leading-relaxed mb-3">
                 Minha abordagem combina pensamento analítico com uma forte capacidade de comunicação — estruturando problemas complexos e traduzindo resultados em insights acionáveis.
               </p>
 
-              <p class="text-gray-600 text-sm leading-relaxed">
+              <p class="text-gray-600 text-l leading-relaxed">
                 Desenvolvo projetos aplicados disponíveis no GitHub, explorando desde análise de dados até machine learning, sempre com foco em resolver problemas reais de negócio.
               </p>
             </div>
 
             <!-- Objetivo -->
             <div class="mb-8 bg-cyan-50 border border-cyan-100 rounded-xl p-5">
-              <p class="text-xs text-cyan-600 font-semibold uppercase mb-1">Buscando</p>
-            <p class="text-gray-600 text-sm leading-relaxed">
+              <p class="text-l text-cyan-600 font-semibold uppercase mb-1">Buscando</p>
+            <p class="text-gray-600 text-l leading-relaxed">
               Atuo em colaboração com empresas e profissionais em projetos de dados, desenvolvendo soluções que transformam dados em vantagem competitiva por meio de análise, automação e inteligência aplicada.
             </p>
             </div>
