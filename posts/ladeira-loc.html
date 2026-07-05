@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ladeira.Loc | Syã Fonseca</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; }
+
+    /* Progress bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #0e7490, #f59e0b);
+      z-index: 100;
+      transition: width 0.1s ease;
+    }
+
+    /* Prose styles */
+    .post-body p { line-height: 1.85; color: #374151; margin-bottom: 1.25rem; font-size: 0.95rem; }
+    .post-body h2 { font-size: 1.4rem; font-weight: 700; color: #164e63; margin: 2.5rem 0 1rem; padding-left: 0.75rem; border-left: 4px solid #0e7490; }
+    .post-body h3 { font-size: 1.1rem; font-weight: 600; color: #1e3a5f; margin: 2rem 0 0.75rem; }
+    .post-body h4 { font-size: 0.9rem; font-weight: 700; color: #374151; margin: 1.5rem 0 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .post-body ul { margin: 0 0 1.25rem 1.25rem; }
+    .post-body ul li { margin-bottom: 0.5rem; font-size: 0.95rem; color: #374151; line-height: 1.7; }
+    .post-body strong { color: #111827; font-weight: 600; }
+    .post-body em { color: #6b7280; }
+
+    /* Image caption */
+    .img-caption { font-size: 0.78rem; color: #9ca3af; text-align: center; margin-top: 0.5rem; font-style: italic; }
+
+    /* Chart placeholder */
+    .chart-frame {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .chart-frame img { max-width: 100%; border-radius: 8px; }
+
+    /* Callout blocks */
+    .callout-insight {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      border-radius: 0 10px 10px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+    }
+    .callout-alert {
+      background: #fefce8;
+      border-left: 4px solid #f59e0b;
+      border-radius: 0 10px 10px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+    }
+    .callout-result {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      border-radius: 0 10px 10px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    /* TOC */
+    .toc-link { display: block; padding: 0.35rem 0; font-size: 0.82rem; color: #64748b; border-left: 2px solid transparent; padding-left: 0.75rem; transition: color 0.2s, border-color 0.2s; }
+    .toc-link:hover { color: #0e7490; border-left-color: #0e7490; }
+
+    /* Section divider */
+    .section-rule { border: none; border-top: 1px dashed #e2e8f0; margin: 2.5rem 0; }
+
+    /* Fade in */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.6s ease both; }
+
+    /* Back link hover */
+    .back-link { transition: gap 0.2s; }
+    .back-link:hover { gap: 0.75rem; }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Reading progress -->
+  <div id="reading-progress" style="width:0%"></div>
+
+  <!-- ═══════════ NAV ═══════════ -->
+  <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="../index.html" class="back-link flex items-center gap-2 text-sm text-cyan-700 font-semibold hover:text-cyan-900 transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Voltar ao portfólio
+      </a>
+      <div class="flex items-center gap-4">
+        <a href="https://github.com/fonsecadados/AgenciaNacionalDoCinema_ANCINE" target="_blank"
+           class="flex items-center gap-1.5 text-sm text-gray-600 hover:text-gray-900 transition font-medium">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          Ver código
+        </a>
+        <a href="https://www.linkedin.com/in/syafonseca/" target="_blank"
+           class="text-sm px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition font-medium">
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════ HERO DO POST ═══════════ -->
+  <header class="bg-gradient-to-br from-cyan-950 via-cyan-900 to-slate-800 py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 fade-up">
+
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-2 mb-6">
+        <span class="px-3 py-1 bg-white/15 text-cyan-200 text-xs rounded-full font-medium border border-white/20">ANCINE</span>
+        <span class="px-3 py-1 bg-white/15 text-cyan-200 text-xs rounded-full font-medium border border-white/20">Python</span>
+        <span class="px-3 py-1 bg-white/15 text-cyan-200 text-xs rounded-full font-medium border border-white/20">Pandas</span>
+        <span class="px-3 py-1 bg-white/15 text-cyan-200 text-xs rounded-full font-medium border border-white/20">GeoPandas</span>
+        <span class="px-3 py-1 bg-white/15 text-cyan-200 text-xs rounded-full font-medium border border-white/20">EDA</span>
+        <span class="px-3 py-1 bg-white/15 text-cyan-200 text-xs rounded-full font-medium border border-white/20">Dados Geoespaciais</span>
+        <span class="px-3 py-1 bg-amber-500/70 text-white text-xs rounded-full font-medium">Janeiro 2025</span>
+      </div>
+
+      <h1 class="text-3xl md:text-4xl font-bold text-white leading-tight mb-4">
+        Indústria Cinematográfica Brasileira:<br class="hidden md:block">
+        <span class="text-amber-300">Desafios e Oportunidades</span>
+      </h1>
+      <p class="text-cyan-200 text-base md:text-lg leading-relaxed max-w-2xl">
+        Análise exploratória dos dados públicos da ANCINE para mapear a concentração de agentes econômicos, identificar disparidades regionais e entender o impacto das políticas de fomento no audiovisual brasileiro.
+      </p>
+
+      <!-- Meta -->
+      <div class="flex flex-wrap gap-6 mt-8 pt-6 border-t border-white/10 text-sm text-cyan-300">
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          Syã Fonseca
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          15 de janeiro de 2025
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          ~12 min de leitura
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════ MÉTRICAS DESTAQUE ═══════════ -->
+  <div class="bg-white border-b border-gray-100 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 py-8">
+      <p class="text-xs text-cyan-600 font-semibold uppercase tracking-widest mb-5 text-center">Principais números do estudo</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="text-center p-4 bg-blue-50 rounded-xl border border-blue-100">
+          <p class="text-2xl md:text-3xl font-bold text-blue-700">60%</p>
+          <p class="text-xs text-gray-600 mt-1 leading-tight">dos agentes concentrados no Sudeste</p>
+        </div>
+        <div class="text-center p-4 bg-amber-50 rounded-xl border border-amber-100">
+          <p class="text-2xl md:text-3xl font-bold text-amber-700">7.196</p>
+          <p class="text-xs text-gray-600 mt-1 leading-tight">registros analisados após filtragem</p>
+        </div>
+        <div class="text-center p-4 bg-red-50 rounded-xl border border-red-100">
+          <p class="text-2xl md:text-3xl font-bold text-red-600">−381%</p>
+          <p class="text-xs text-gray-600 mt-1 leading-tight">queda na captação por Renúncia Fiscal (2019→2021)</p>
+        </div>
+        <div class="text-center p-4 bg-green-50 rounded-xl border border-green-100">
+          <p class="text-2xl md:text-3xl font-bold text-green-700">61</p>
+          <p class="text-xs text-gray-600 mt-1 leading-tight">produtoras nível 5 — 54 delas em SP ou RJ</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ CORPO DO POST ═══════════ -->
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <div class="flex flex-col lg:flex-row gap-10">
+
+      <!-- TOC lateral (desktop) -->
+      <aside class="hidden lg:block lg:w-56 shrink-0">
+        <div class="sticky top-24 bg-white rounded-xl border border-gray-100 shadow-sm p-5">
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Neste artigo</p>
+          <nav>
+            <a class="toc-link" href="#contexto">Contexto de negócio</a>
+            <a class="toc-link" href="#objetivo">Objetivo</a>
+            <a class="toc-link" href="#metodologia">Metodologia</a>
+            <a class="toc-link" href="#agentes">Agentes econômicos</a>
+            <a class="toc-link" href="#distribuicao">Distribuição geográfica</a>
+            <a class="toc-link" href="#naturezas">Natureza jurídica</a>
+            <a class="toc-link" href="#niveis">Níveis de produtora</a>
+            <a class="toc-link" href="#series">Séries temporais</a>
+            <a class="toc-link" href="#conclusao">Conclusão</a>
+          </nav>
+
+          <hr class="my-4 border-gray-100">
+
+          <a href="https://github.com/fonsecadados/AgenciaNacionalDoCinema_ANCINE" target="_blank"
+             class="flex items-center gap-2 text-xs text-gray-500 hover:text-gray-800 transition font-medium">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            Ver repositório no GitHub
+          </a>
+        </div>
+      </aside>
+
+      <!-- Conteúdo principal -->
+      <article class="flex-1 min-w-0 post-body">
+
+        <!-- Contexto -->
+        <section id="contexto">
+          <h2>Contexto de negócio</h2>
+          <p>A qualidade e a amplitude da indústria cinematográfica de um país são reflexos não apenas de sua cultura e sociedade, mas também de suas aspirações, desafios e conquistas. No Brasil, embora a indústria produza um número considerável de filmes anualmente em comparação com países de economias semelhantes, ela enfrenta uma batalha cultural significativa com o cinema estrangeiro — principalmente o norte-americano.</p>
+
+          <p>O consumo de entretenimento audiovisual no Brasil é amplamente dominado pela indústria estadunidense, em parte devido à sua capacidade de produzir conteúdo com grandes orçamentos e alto apelo comercial. Isso coloca as produções locais em uma competição desafiadora, com recursos financeiros e de marketing limitados em comparação com seus concorrentes estrangeiros.</p>
+
+          <div class="callout-alert">
+            <p class="text-sm font-semibold text-amber-800 mb-1">⚠️ Problema central identificado</p>
+            <p class="text-sm text-amber-900">Existe uma <strong>disparidade crítica no acesso a recursos</strong> dentro da indústria cinematográfica. Enquanto grandes estúdios e produções de alto orçamento garantem financiamento com mais facilidade, cineastas independentes e produções de menor escala enfrentam barreiras significativas para obter distribuição e apoio adequados.</p>
+          </div>
+
+          <p>Além disso, as políticas públicas e os incentivos governamentais desempenham papel crucial na sustentabilidade da indústria. Investimentos em programas de financiamento, subsídios e incentivos fiscais podem impulsionar a produção local e promover maior diversidade de vozes e perspectivas no cinema brasileiro.</p>
+        </section>
+
+        <hr class="section-rule">
+
+        <!-- Objetivo -->
+        <section id="objetivo">
+          <h2>Objetivo do projeto</h2>
+          <p>O principal objetivo deste projeto é <strong>analisar os dados da indústria cinematográfica brasileira</strong> para compreender melhor os desafios financeiros e socioeconômicos enfrentados pelos agentes econômicos registrados na ANCINE.</p>
+
+          <p>Buscamos identificar padrões de comportamento, analisar as projeções de crescimento entre polos locais e a indústria nacional como um todo, além de fomentar a transparência no mercado audiovisual. A meta é promover um ambiente mais sustentável e diversificado para a produção nacional de filmes.</p>
+
+          <div class="callout-result">
+            <p class="text-sm font-semibold text-green-800 mb-1">📦 Entrega do projeto</p>
+            <p class="text-sm text-green-900">Relatório executivo acessível ao público em geral + documentação técnica completa e código aberto disponível no repositório do GitHub.</p>
+          </div>
+        </section>
+
+        <hr class="section-rule">
+
+        <!-- Metodologia -->
+        <section id="metodologia">
+          <h2>Metodologia e stack técnico</h2>
+          <p>O projeto utilizou dados públicos disponibilizados pela ANCINE. O processamento foi estruturado em um modelo orientado a objetos (POO), com os dados pré-processados em etapas anteriores à análise exploratória — eliminando valores nulos e corrigindo tipos de dados antes da visualização.</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 my-6">
+            <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 text-center">
+              <p class="text-xl mb-2">🐍</p>
+              <p class="text-sm font-semibold text-gray-800">Python</p>
+              <p class="text-xs text-gray-500 mt-1">Pandas, NumPy, Matplotlib, WordCloud</p>
+            </div>
+            <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 text-center">
+              <p class="text-xl mb-2">🗺️</p>
+              <p class="text-sm font-semibold text-gray-800">GeoPandas</p>
+              <p class="text-xs text-gray-500 mt-1">Mapas de distribuição geoespacial</p>
+            </div>
+            <div class="bg-gray-50 border border-gray-100 rounded-xl p-4 text-center">
+              <p class="text-xl mb-2">📓</p>
+              <p class="text-sm font-semibold text-gray-800">Jupyter Notebook</p>
+              <p class="text-xs text-gray-500 mt-1">Análise exploratória e visualizações</p>
+            </div>
+          </div>
+
+          <p>A análise partiu da junção de três tabelas da ANCINE: <strong>Agentes Econômicos Regulares</strong>, <strong>Atividades Econômicas dos Agentes</strong> e <strong>Produtoras Independentes</strong>. Essa fusão permitiu uma visão mais completa da estrutura jurídica e operacional de cada agente registrado.</p>
+
+          <div class="chart-frame">
+            <img src="https://github.com/fonsecadados/AgenciaNacionalDoCinema_ANCINE/raw/main/img/mapa_mental.PNG"
+                 alt="Mapa mental da estrutura do projeto"
+                 onerror="this.parentElement.innerHTML='<p class=\'text-sm text-gray-400 py-8\'>📊 Mapa mental do projeto — disponível no GitHub</p>'">
+            <p class="img-caption">Mapa mental da arquitetura e estrutura de dados do projeto</p>
+          </div>
+        </section>
+
+        <hr class="section-rule">
+
+        <!-- Agentes econômicos -->
+        <section id="agentes">
+          <h2>Agentes econômicos e o recorte analítico</h2>
+
+          <h3>O que é "Produtora Independente" na ANCINE?</h3>
+          <p>A minuta da Instrução Normativa publicada pelo Ministério da Cultura estabelece critérios para a classificação de empresa produtora independente para fins de captação de recursos via fomento indireto e incentivo fiscal federal.</p>
+
+          <div class="callout-insight">
+            <p class="text-sm font-semibold text-blue-800 mb-1">📋 Art. 2º — Instrução Normativa ANCINE</p>
+            <p class="text-sm text-blue-900">Somente as empresas classificadas na ANCINE como produtoras brasileiras independentes estarão aptas a captar recursos por meio de fomento indireto administrado pela ANCINE, de acordo com sua classificação de nível.</p>
+          </div>
+
+          <p>Neste projeto foram analisados apenas os dados dos agentes que cumprem os requisitos da normativa e que possuem pontuação na classificação de nível. Essa segmentação resultou em um recorte de <strong>7.196 linhas de dados</strong> — eliminando registros de agentes que atuam em áreas audiovisuais não relacionadas diretamente à produção cinematográfica.</p>
+
+          <h3>Diversidade de atividades econômicas</h3>
+          <p>A análise preliminar das atividades econômicas revelou <strong>186 tipos diferentes</strong> de atividades dentro do conjunto filtrado. Para visualizar os padrões mais relevantes, foram geradas nuvens de palavras — primeiro com as 50 mais recorrentes, depois com as 400 menos frequentes.</p>
+
+          <div class="grid md:grid-cols-2 gap-4 my-4">
+            <div class="chart-frame">
+              <img src="https://github.com/fonsecadados/AgenciaNacionalDoCinema_ANCINE/raw/main/img/nuvem_palavras_top.png"
+                   alt="Nuvem de palavras - 50 mais recorrentes"
+                   onerror="this.parentElement.innerHTML='<p class=\'text-sm text-gray-400 py-6\'>🔤 Nuvem de palavras (Top 50) — ver no GitHub</p>'">
+              <p class="img-caption">Top 50 palavras mais recorrentes nas atividades econômicas</p>
+            </div>
+            <div class="chart-frame">
+              <img src="https://github.com/fonsecadados/AgenciaNacionalDoCinema_ANCINE/raw/main/img/nuvem_palavras_resto.png"
+                   alt="Nuvem de palavras - 400 menos recorrentes"
+                   onerror="this.parentElement.innerHTML='<p class=\'text-sm text-gray-400 py-6\'>🔤 Nuvem de palavras (400 menos freq.) — ver no GitHub</p>'">
+              <p class="img-caption">As 400 palavras menos recorrentes — revelam a cauda longa de nichos</p>
+            </div>
+          </div>
+        </section>
+
+        <hr class="section-rule">
+
+        <!-- Distribuição geográfica -->
+        <section id="distribuicao">
+          <h2>Distribuição geográfica dos agentes</h2>
+          <p>Observa-se uma concentração considerável de agentes econômicos nos estados de São Paulo (SP) e Rio de Janeiro (RJ). Tal concentração é influenciada pela centralização das atividades de mercado e da disponibilidade de mão de obra qualificada nesses dois estados.</p>
+
+          <div class="chart-frame">
+            <img src="https://github.com/fonsecadados/AgenciaNacionalDoCinema_ANCINE/raw/main/img/mapa_distribuicao_agentes_economicos.png"
+                 alt="Mapa de distribuição dos agentes econômicos por estado"
+                 onerror="this.parentElement.innerHTML='<p class=\'text-sm text-gray-400 py-8\'>🗺️ Mapa geoespacial de distribuição — disponível no GitHub</p>'">
+            <p class="img-caption">Mapa de concentração dos agentes econômicos por estado brasileiro</p>
+          </div>
+
+          <p>Ao excluir SP e RJ da análise, surgem padrões diferentes e mais reveladores de distribuição — refletindo uma dispersão mais equitativa da atividade econômica pelo restante do território. Essa alteração revela <strong>potenciais áreas de crescimento em regiões menos exploradas</strong>, como Bahia, Pernambuco e o Distrito Federal.</p>
+
+          <div class="chart-frame">
+            <img src="https://github.com/fonsecadados/AgenciaNacionalDoCinema_ANCINE/raw/main/img/grafico_distribuicao_agentes_economicos.png"
+                 alt="Comparação capital vs interior por estado"
+                 onerror="this.parentElement.innerHTML='<p class=\'text-sm text-gray-400 py-8\'>📊 Gráfico capital vs interior — disponível no GitHub</p>'">
+            <p class="img-caption">Capital vs. municípios do interior — distribuição por estado (excluindo SP, RJ e DF)</p>
+          </div>
+
+          <div class="callout-insight">
+            <p class="text-sm font-semibold text-blue-800 mb-2">🔍 3 achados incomuns na análise regional</p>
+            <ul class="text-sm text-blue-900 space-y-1 list-disc pl-4">
+              <li><strong>Santa Catarina</strong> é o único estado onde produtores fora da capital superam os da capital Florianópolis.</li>
+              <li><strong>Espírito Santo</strong> tem a divisão mais equalizada do país: 49,6% em Vitória e 50,4% fora da capital.</li>
+              <li><strong>Roraima</strong> tem 100% dos produtores concentrados na capital Boa Vista.</li>
+            </ul>
+          </div>
+        </section>
+
+        <hr class="section-rule">
+
+        <!-- Natureza jurídica -->
+        <section id="naturezas">
+          <h2>Natureza jurídica dos agentes</h2>
+
+          <div class="chart-frame">
+            <img src="https://github.com/fonsecadados/AgenciaNacionalDoCinema_ANCINE/raw/main/img/mapa_distribuicao_naturezas_juridicas.png"
+                 alt="Distribuição de naturezas jurídicas"
+                 onerror="this.parentElement.innerHTML='<p class=\'text-sm text-gray-400 py-8\'>📊 Mapa de naturezas jurídicas — disponível no GitHub</p>'">
+            <p class="img-caption">Ranking e distribuição geográfica das naturezas jurídicas dos agentes</p>
+          </div>
+
+          <p>Apesar da natureza jurídica <strong>LTDA (Sociedade Empresária Limitada)</strong> controlar majoritariamente a arrecadação do mercado, o <strong>MEI (Microempreendedor Individual)</strong> desempenha papel significativo na indústria audiovisual brasileira — especialmente no contexto de democratização da produção de conteúdo.</p>
+
+          <p>Através do MEI, produtores independentes têm acesso a uma estrutura jurídica simplificada e custos operacionais reduzidos, possibilitando que futuros profissionais da indústria iniciem seus negócios com muito mais facilidade.</p>
+        </section>
+
+        <hr class="section-rule">
+
+        <!-- Níveis de produtora -->
+        <section id="niveis">
+          <h2>Classificação por nível de produtora</h2>
+          <p>O sistema de níveis da ANCINE categoriza as produtoras com base em critérios específicos de desempenho e conformidade regulatória. Essa classificação define a elegibilidade e o limite de captação de recursos via fomento indireto.</p>
+
+          <div class="chart-frame">
+            <img src="https://github.com/fonsecadados/AgenciaNacionalDoCinema_ANCINE/raw/main/img/mapa_distribuicao_nivel_produtora.png"
+                 alt="Distribuição dos níveis de produtora por estado"
+                 onerror="this.parentElement.innerHTML='<p class=\'text-sm text-gray-400 py-8\'>📊 Mapa de níveis de produtora — disponível no GitHub</p>'">
+            <p class="img-caption">Distribuição geográfica dos níveis de classificação de produtora</p>
+          </div>
+
+          <div class="chart-frame">
+            <img src="https://github.com/fonsecadados/AgenciaNacionalDoCinema_ANCINE/raw/main/img/captacao_niveis_produtora.JPG"
+                 alt="Limite máximo de captação por nível"
+                 onerror="this.parentElement.innerHTML='<p class=\'text-sm text-gray-400 py-8\'>📋 Tabela de limites de captação — disponível no GitHub</p>'">
+            <p class="img-caption">Limite máximo de captação de recursos por nível de classificação</p>
+          </div>
+
+          <div class="callout-alert">
+            <p class="text-sm font-semibold text-amber-800 mb-2">📌 Dados críticos sobre concentração de nível 5</p>
+            <ul class="text-sm text-amber-900 space-y-1.5 list-disc pl-4">
+              <li>Há um total de <strong>61 produtoras com classificação nível 5</strong> — sendo que <strong>54 delas estão em SP ou RJ</strong>.</li>
+              <li>SP possui mais produtoras de nível 5 do que o <strong>número total de produtoras em Roraima</strong>.</li>
+              <li>O ES é de longe o <strong>menor mercado audiovisual do Sudeste</strong>, representando apenas 4,9% da fatia da região — com tamanho 5x menor que o mercado de MG.</li>
+              <li>O ES se equipara em números ao Maranhão, porém enquanto MA possui <strong>produtoras de todos os níveis</strong>, o ES possui apenas produtoras de nível 1 e 2.</li>
+            </ul>
+          </div>
+
+          <p>Essa disparidade na distribuição dos níveis reflete diretamente no <strong>acesso desigual aos mecanismos de fomento</strong>. A classificação visa garantir que os recursos sejam direcionados com eficiência, mas na prática reforça as assimetrias históricas entre regiões.</p>
+        </section>
+
+        <hr class="section-rule">
+
+        <!-- Séries temporais -->
+        <section id="series">
+          <h2>Séries temporais: captação ao longo do tempo</h2>
+          <p>A análise temporal abrange desde os primeiros registros históricos de captação por Renúncia Fiscal (1993) até os dados mais recentes disponíveis, incluindo os desembolsos pelo Fundo Setorial Audiovisual (FSA), iniciados em 2009.</p>
+
+          <div class="chart-frame">
+            <img src="https://github.com/fonsecadados/AgenciaNacionalDoCinema_ANCINE/raw/main/img/grafico_serie_temporal_valores_captados.png"
+                 alt="Série temporal de valores captados"
+                 onerror="this.parentElement.innerHTML='<p class=\'text-sm text-gray-400 py-8\'>📈 Série temporal — disponível no GitHub</p>'">
+            <p class="img-caption">Evolução dos valores captados por Renúncia Fiscal e FSA (1993–2022)</p>
+          </div>
+
+          <p>O gráfico revela um <strong>crescimento consolidado</strong> de 1993 a 2019 — até que um desmonte sistemático nas leis de fomento cultural, promovido pelo governo federal da época, trouxe uma <strong>desvalorização inédita do mercado audiovisual</strong>.</p>
+
+          <div class="chart-frame">
+            <img src="https://github.com/fonsecadados/AgenciaNacionalDoCinema_ANCINE/raw/main/img/grafico_barra_retracao_captacao.png"
+                 alt="Gráfico de retração na captação"
+                 onerror="this.parentElement.innerHTML='<p class=\'text-sm text-gray-400 py-8\'>📉 Gráfico de retração — disponível no GitHub</p>'">
+            <p class="img-caption">Retração na captação comparada entre 2018/2019 e os anos seguintes</p>
+          </div>
+
+          <div class="callout-alert">
+            <p class="text-sm font-semibold text-amber-800 mb-2">📉 Magnitude da retração (2019 → 2021)</p>
+            <div class="grid md:grid-cols-2 gap-3 mt-3">
+              <div class="bg-white/60 rounded-lg p-3">
+                <p class="text-xs font-bold text-amber-700 uppercase tracking-wide mb-1">Renúncia Fiscal</p>
+                <p class="text-sm text-amber-900">Média 2018/2019: <strong>R$ 249 mi</strong><br>Média 2020/2021: <strong>R$ 65,3 mi</strong><br>Queda de <strong>−381%</strong> — equivalente aos anos 1995/96</p>
+              </div>
+              <div class="bg-white/60 rounded-lg p-3">
+                <p class="text-xs font-bold text-amber-700 uppercase tracking-wide mb-1">FSA / Desembolso</p>
+                <p class="text-sm text-amber-900">Média 2017/18/19: <strong>R$ 544 mi</strong><br>Anos seguintes: <strong>R$ 106,5 mi</strong><br>Queda de <strong>−510%</strong> na captação</p>
+              </div>
+            </div>
+          </div>
+
+          <p>Esses números refletem a <strong>extrema importância das leis de fomento</strong> e iniciativas como o FSA para o crescimento da indústria. A falta de incentivo ao setor reflete diretamente no crescimento econômico regional e nacional.</p>
+        </section>
+
+        <hr class="section-rule">
+
+        <!-- Conclusão -->
+        <section id="conclusao">
+          <h2>Conclusão e possíveis soluções</h2>
+
+          <h3>Desafios identificados</h3>
+          <ul>
+            <li><strong>Disparidade no acesso a recursos:</strong> acesso desigual dentro da indústria, com grandes estúdios tendo vantagens significativas sobre produtores independentes.</li>
+            <li><strong>Domínio do cinema estrangeiro:</strong> predomínio do cinema norte-americano no mercado brasileiro, criando competição assimétrica para produções locais.</li>
+            <li><strong>Concentração geográfica extrema:</strong> 60%+ dos agentes no Sudeste, com Norte e Centro-Oeste cronicamente sub-representados.</li>
+            <li><strong>Vulnerabilidade às políticas públicas:</strong> a retração de 2019–2021 demonstrou o quanto a indústria depende de estabilidade regulatória.</li>
+          </ul>
+
+          <h3>Possíveis soluções</h3>
+          <ul>
+            <li><strong>Incentivos governamentais regionalizados:</strong> políticas públicas com foco em regiões com déficit de produtoras, como Norte e Centro-Oeste.</li>
+            <li><strong>Promoção da diversidade:</strong> apoio a produções de menor escala e de nicho, garantindo maior diversidade de vozes.</li>
+            <li><strong>Proteção das leis de fomento:</strong> mecanismos legais para tornar o FSA e a renúncia fiscal mais resistentes a cortes orçamentários.</li>
+          </ul>
+
+          <div class="callout-result">
+            <p class="text-sm font-semibold text-green-800 mb-1">🎯 Impacto do estudo</p>
+            <p class="text-sm text-green-900">Este projeto fornece insights estratégicos acionáveis para <strong>órgãos de fomento, gestores públicos e investidores privados</strong> direcionarem recursos para regiões com maior potencial de crescimento não explorado — promovendo um mercado audiovisual mais sustentável e geograficamente diversificado.</p>
+          </div>
+        </section>
+
+        <!-- CTA final -->
+        <div class="mt-10 bg-gradient-to-r from-cyan-900 to-cyan-700 rounded-2xl p-7 text-white text-center">
+          <p class="text-sm font-semibold text-cyan-300 mb-1">📂 Acesse o projeto completo</p>
+          <h3 class="text-xl font-bold mb-2">Código, dados e documentação abertos no GitHub</h3>
+          <p class="text-cyan-200 text-sm mb-5">Todo o pipeline de dados, notebooks Jupyter e documentação técnica estão disponíveis publicamente.</p>
+          <div class="flex flex-wrap justify-center gap-3">
+            <a href="https://github.com/fonsecadados/AgenciaNacionalDoCinema_ANCINE" target="_blank"
+               class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-800 rounded-xl text-sm font-semibold hover:bg-gray-100 transition">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              Ver no GitHub
+            </a>
+            <a href="../index.html#projetos"
+               class="inline-flex items-center gap-2 px-5 py-2.5 bg-white/15 border border-white/30 text-white rounded-xl text-sm font-semibold hover:bg-white/25 transition">
+              Ver outros projetos
+            </a>
+          </div>
+        </div>
+
+      </article>
+    </div>
+  </div>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="border-t border-gray-200 py-8 bg-white mt-16">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-3 text-gray-500 text-sm">
+      <p>© 2025 Syã Fonseca. Todos os direitos reservados.</p>
+      <div class="flex gap-5">
+        <a href="../index.html" class="hover:text-gray-800 transition">← Portfólio</a>
+        <a href="https://github.com/fonsecadados" target="_blank" class="hover:text-gray-800 transition">GitHub</a>
+        <a href="https://www.linkedin.com/in/syafonseca/" target="_blank" class="hover:text-gray-800 transition">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reading progress bar
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop || document.body.scrollTop;
+      const scrollHeight = doc.scrollHeight - doc.clientHeight;
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      document.getElementById('reading-progress').style.width = progress + '%';
+    });
+
+    // Mobile menu
+    const btn = document.getElementById('mobileMenuBtn');
+    const menu = document.getElementById('mobileMenu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    }
+  </script>
+
+</body>
+</html>
